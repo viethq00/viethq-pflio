@@ -6,9 +6,8 @@ import StairTransition from "@/components/StairTransition";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weights: [100, 200, 300, 400, 500, 600, 700, 800],
-  variable:
-    "--font-jetbrainsMono font-primary bg-primary text-white leading-loose",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-jetbrainsMono",
 });
 
 export const metadata = {
@@ -19,10 +18,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={jetbrainsMono.variable}>
+      <body
+        className={`${jetbrainsMono.variable} font-primary bg-primary text-white leading-loose`}
+      >
         <StairTransition />
         <Header />
-        <PageTransition> {children}</PageTransition>
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   );
