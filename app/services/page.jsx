@@ -8,25 +8,29 @@ const services = [
   {
     num: "01",
     title: "Web Development",
-    description: "I specialize in building exceptional digital experiences.",
+    description:
+      "Creating robust and scalable web applications tailored to your business needs.",
     href: "",
   },
   {
     num: "02",
     title: "Mobile Development",
-    description: "I specialize in building exceptional digital experiences.",
+    description:
+      "Designing and developing high-performance mobile apps for iOS and Android.",
     href: "",
   },
   {
     num: "03",
     title: "UI/UX Design",
-    description: "I specialize in building exceptional digital experiences.",
+    description:
+      "Crafting intuitive and engaging user interfaces with a focus on user experience.",
     href: "",
   },
   {
     num: "04",
     title: "SEO Optimization",
-    description: "I specialize in building exceptional digital experiences.",
+    description:
+      "Enhancing your website's visibility on search engines to drive more traffic.",
     href: "",
   },
 ];

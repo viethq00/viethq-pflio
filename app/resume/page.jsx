@@ -25,21 +25,20 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 const about = {
   title: "About me",
   description:
-    "I am a full stack developer with a passion for creating beautiful and functional websites. I have experience with HTML, CSS, JavaScript, React, Node.js, and MongoDB. I am always looking to learn new technologies and improve my skills.",
+    "I am a fullstack developer based in Vietnam, specializing in building and developing web applications from frontend to backend. I am passionate about creating innovative digital solutions that provide exceptional user experiences and exceed client expectations.",
   info: [
     {
       fieldName: "Name",
-      fieldValue: "John Doe",
+      fieldValue: "Ha Quoc Viet",
     },
     {
       fieldName: "Phone",
-      fieldValue: "123-456-7890",
+      fieldValue: "+848 3536 6950",
     },
     {
       fieldName: "Experience",
       fieldValue: "2+ years",
     },
-
     {
       fieldName: "Nationality",
       fieldValue: "Vietnam",
@@ -66,82 +65,46 @@ const experience = {
     "I have worked on a variety of projects using different technologies.",
   item: [
     {
-      company: "Company 1",
+      company: "MXV Exchange Platform",
       position: "Fullstack Developer",
-      duration: "2020 - 2021",
-    },
-
-    {
-      company: "Company 1",
-      position: "Fullstack Developer",
-      duration: "2020 - 2021",
-    },
-
-    {
-      company: "Company 1",
-      position: "Fullstack Developer",
-      duration: "2020 - 2021",
+      duration: "Sep. 2023 – Now",
+      details:
+        "In charge of creating microservices system, designing schema, handling back-end business logic and building interface (Web browser and Mobile) based on User Requirements Document. Language/Technology: JavaScript, TypeScript, NodeJS, ExpressJS, NextJS, React Native, Kafka, Redis, Nginx, MongoDB",
     },
     {
-      company: "Company 1",
-      position: "Fullstack Developer",
-      duration: "2020 - 2021",
+      company: "Amai Content",
+      position: "Backend Developer",
+      duration: "Nov. 2022 – Sep. 2023",
+      details:
+        "In charge of creating a transaction management system for automated payment integration with Vietcombank and A Chau Bank, a business profile management system based on Google Business Profile APIs, and a realtime messaging platform. Language/Technology: Javascript, ExpressJS, NextJS, MySQL, MongoDB",
     },
     {
-      company: "Company 1",
-      position: "Fullstack Developer",
-      duration: "2020 - 2021",
-    },
-
-    {
-      company: "Company 1",
-      position: "Fullstack Developer",
-      duration: "2020 - 2021",
-    },
-
-    {
-      company: "Company 1",
-      position: "Fullstack Developer",
-      duration: "2020 - 2021",
-    },
-    {
-      company: "Company 1",
-      position: "Fullstack Developer",
-      duration: "2020 - 2021",
+      company: "JUSEI Master",
+      position: "Backend Developer",
+      duration: "Mar. 2022 – Dec. 2022",
+      details:
+        "In charge of designing schema and handling back-end business logic for analyzing data to create general and in-depth statistics. Language/Technology: Typescript, NestJS, MongoDB.",
     },
   ],
 };
 
 const education = {
   icon: "/assets/resume/cap.svg",
-  title: "My education",
+  title: "My Education",
   description:
-    "I have worked on a variety of projects using different technologies.",
+    "I have pursued a comprehensive education in computer and information science.",
   item: [
     {
-      institution: "University 1",
-      degree: "Fullstack Developer",
-      duration: "2020 - 2021",
-    },
-
-    {
-      institution: "University 1",
-      degree: "Fullstack Developer",
-      duration: "2020 - 2021",
-    },
-
-    {
-      institution: "University 1",
-      degree: "Fullstack Developer",
-      duration: "2020 - 2021",
+      institution: "Vietnam National University - HUS",
+      degree: "Computer & Information Science Advanced Program",
+      duration: "2018 - 2022",
     },
   ],
 };
 
 const skills = {
-  title: "My skills",
-  description: "I have experience with the following technologies.",
-
+  title: "My Skills",
+  description: "I have experience with the following technologies:",
   skillList: [
     {
       icon: <FaHtml5 />,
@@ -267,13 +230,13 @@ const Resumes = () => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                          className="bg-[#232329] h-[220px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                         >
                           <span className="text-accent">{item.duration}</span>
                           <h3 className="text-xl max-w--[260px] min-h-[60px] text-center lg:text-left">
                             {item.degree}
                           </h3>
-                          <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-3 mt-6">
                             <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
                             <p className="text-white/60">{item.institution}</p>
                           </div>

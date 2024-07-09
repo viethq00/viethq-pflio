@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import Photo from "@/components/Photo";
 import Socials from "@/components/Social";
@@ -5,6 +6,11 @@ import Stats from "@/components/Stats";
 import { FiDownload } from "react-icons/fi";
 
 export default function Home() {
+  const downloadCV = () => {
+    // Update with the correct path to your PDF file
+    const fileUrl = "/assets/CV_HaQuocViet_FullstackDev.pdf";
+    window.open(fileUrl, "_blank");
+  };
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
@@ -16,17 +22,21 @@ export default function Home() {
               <span className="text-accent">Ha Quoc Viet</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80 ">
-              I am a software developer based in Vietnam. I specialize in
-              building exceptional digital experiences.
+              I am a fullstack developer based in Vietnam, specializing in
+              building and developing web applications from frontend to backend.
+              I am passionate about creating innovative digital solutions that
+              provide exceptional user experiences and exceed client
+              expectations.
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button
                 variant="outline"
                 size="lg"
                 className="uppercase flex items-center gap-2"
+                onClick={downloadCV}
               >
                 <span>Download CV</span>
-                <FiDownload className="text-xl"></FiDownload>
+                <FiDownload className="text-xl" />
               </Button>
               <div className="mb-8 xl:mb-0">
                 <Socials

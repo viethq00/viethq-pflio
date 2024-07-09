@@ -20,17 +20,23 @@ import WorkSliderBtns from "@/components/WorkSliderBtn";
 const projects = [
   {
     num: "01",
-    category: "Web Development",
-    title: "Portfolio",
-    description: "My personal portfolio website",
+    category: "Web/Mobile Development",
+    title: "Fullstack Developer",
+    description:
+      "MXV Exchange Platform is an online trading platform facilitating the trading of commodities in energy and agricultural groups.",
     stack: [
-      {
-        name: "Next.js",
-      },
-      { name: "React" },
-      { name: "TailwindCSS" },
+      { name: "JavaScript" },
+      { name: "TypeScript" },
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: "Next.js" },
+      { name: "React Native" },
+      { name: "Kafka" },
+      { name: "Redis" },
+      { name: "Nginx" },
+      { name: "MongoDB" },
     ],
-    image: "/assets/work/thumb1.png",
+    image: "/assets/work/thump1.png",
     live: "",
     github: "",
   },
@@ -38,16 +44,17 @@ const projects = [
   {
     num: "02",
     category: "Web Development",
-    title: "Portfolio",
-    description: "My personal portfolio website",
+    title: "Backend Developer",
+    description:
+      "Amai Content is an application optimizing content and managing social networks like Facebook, Google My Business, Instagram, etc.",
     stack: [
-      {
-        name: "Next.js",
-      },
-      { name: "React" },
-      { name: "TailwindCSS" },
+      { name: "JavaScript" },
+      { name: "Express.js" },
+      { name: "Next.js" },
+      { name: "MySQL" },
+      { name: "MongoDB" },
     ],
-    image: "/assets/work/thumb1.png",
+    image: "/assets/work/thump2.png",
     live: "",
     github: "",
   },
@@ -55,16 +62,11 @@ const projects = [
   {
     num: "03",
     category: "Web Development",
-    title: "Portfolio",
-    description: "My personal portfolio website",
-    stack: [
-      {
-        name: "Next.js",
-      },
-      { name: "React" },
-      { name: "TailwindCSS" },
-    ],
-    image: "/assets/work/thumb1.png",
+    title: "Backend Developer",
+    description:
+      "JUSEI Master is a study application for the national examination for Judo therapy experts",
+    stack: [{ name: "TypeScript" }, { name: "Nest.js" }, { name: "MongoDB" }],
+    image: "/assets/work/thump3.png",
     live: "",
     github: "",
   },
@@ -97,15 +99,13 @@ const Work = () => {
                 {project.category}
               </h2>
               <p className="text-white/60">{project.description}</p>
-              <ul className="flex gap-4">
-                {project.stack.map((item, index) => {
-                  return (
-                    <li key={index} className="text-xl text-accent">
-                      {" "}
-                      {item.name} {index !== project.stack.length - 1 && ","}
-                    </li>
-                  );
-                })}
+              <ul className="flex flex-wrap gap-4">
+                {project.stack.map((item, index) => (
+                  <li key={index} className="text-xl text-accent">
+                    {item.name}
+                    {index !== project.stack.length - 1 && ","}
+                  </li>
+                ))}
               </ul>
               <div className="border border-white/20"></div>
               <div className="flex items-center gap-4">
@@ -155,7 +155,7 @@ const Work = () => {
                         <Image
                           src={project.image}
                           fill
-                          className="object-cover"
+                          className="object-fill"
                         />
                       </div>
                     </div>
