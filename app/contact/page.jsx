@@ -19,7 +19,7 @@ const info = [
   {
     icon: <FaPhoneAlt />,
     title: "Phone",
-    description: "+1 234 567 890",
+    description: "+84 835366950",
   },
   {
     icon: <FaEnvelope />,
@@ -29,7 +29,7 @@ const info = [
   {
     icon: <FaMapMarkedAlt />,
     title: "Address",
-    description: "123 Street, City, Country",
+    description: "Ha Noi, Vietnam",
   },
 ];
 
