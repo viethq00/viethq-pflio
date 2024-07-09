@@ -95,7 +95,7 @@ const education = {
     "I have pursued a comprehensive education in computer and information science.",
   item: [
     {
-      institution: "Vietnam National University - HUS",
+      institution: "VNU - HUS",
       degree: "Computer & Information Science Advanced Program",
       duration: "2018 - 2022",
     },
