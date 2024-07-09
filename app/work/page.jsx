@@ -83,7 +83,7 @@ const Work = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 1.2, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 1.6, duration: 0.4, ease: "easeIn" },
       }}
     >
       <div className="container mx-auto">
