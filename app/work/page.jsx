@@ -64,7 +64,7 @@ const projects = [
     category: "Web Development",
     title: "Backend Developer",
     description:
-      "JUSEI Master is a study application for the national examination for Judo therapy experts",
+      "JUSEI Master is a study application for the national examination for Judo therapy experts.",
     stack: [{ name: "TypeScript" }, { name: "Nest.js" }, { name: "MongoDB" }],
     image: "/assets/work/thump3.png",
     live: "",
