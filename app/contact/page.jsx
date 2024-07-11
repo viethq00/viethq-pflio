@@ -58,14 +58,12 @@ const Contact = () => {
     formData.append("message", personalInfo.message);
 
     axios
-      .post("http://api.trephuongbac.com/send-email", formData)
+      .post("https://api.trephuongbac.com/users/send-email", formData)
       .then((res) => {
         console.log(res.data);
-        // Handle success if needed
       })
       .catch((err) => {
-        console.error("Error:", err);
-        // Handle error if needed
+        console.log("Error:", err);
       });
   };
 
