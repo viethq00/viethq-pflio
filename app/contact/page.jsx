@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select";
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
+import { useToast } from "@/components/ui/use-toast";
 
 const info = [
   {
@@ -37,6 +38,8 @@ const info = [
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  const { toast } = useToast();
+
   const [personalInfo, setPersonalInfo] = useState({
     firstname: "",
     lastname: "",
@@ -60,7 +63,10 @@ const Contact = () => {
     axios
       .post("https://api.trephuongbac.com/users/send-email", formData)
       .then((res) => {
-        console.log(res.data);
+        toast({
+          title: "Message sent successfully!",
+          description: "I will contact you soon!",
+        });
       })
       .catch((err) => {
         console.log("Error:", err);
@@ -83,7 +89,7 @@ const Contact = () => {
               onSubmit={handleSubmit}
             >
               <h3 className="text-4xl text-accent">Work together</h3>
-              <p className="text-white/60">Work together...</p>
+              <p className="text-white/60">Cooperation would be valuable.</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
                   type="text"
