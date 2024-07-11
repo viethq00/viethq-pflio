@@ -10,28 +10,28 @@ const services = [
     title: "Web Development",
     description:
       "Creating robust and scalable web applications tailored to your business needs.",
-    href: "",
+    href: "/contact",
   },
   {
     num: "02",
     title: "Mobile Development",
     description:
       "Designing and developing high-performance mobile apps for iOS and Android.",
-    href: "",
+    href: "/contact",
   },
   {
     num: "03",
     title: "UI/UX Design",
     description:
       "Crafting intuitive and engaging user interfaces with a focus on user experience.",
-    href: "",
+    href: "/contact",
   },
   {
     num: "04",
     title: "SEO Optimization",
     description:
       "Enhancing your website's visibility on search engines to drive more traffic.",
-    href: "",
+    href: "/contact",
   },
 ];
 

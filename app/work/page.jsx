@@ -44,6 +44,26 @@ const projects = [
   {
     num: "02",
     category: "Web Development",
+    title: "Fullstack Developer",
+    description:
+      "Discover TrePhuongBac, your premier online store for eco-friendly bamboo items. We offer stylish home décor, kitchenware, furniture, and accessories, all crafted from premium bamboo. Prioritizing sustainability and quality, TrePhuongBac ensures each product enhances your lifestyle while being environmentally friendly. Shop now for the best bamboo products and enjoy exceptional service.",
+    stack: [
+      { name: "JavaScript" },
+      { name: "TypeScript" },
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: "Next.js" },
+      { name: "Nginx" },
+      { name: "MongoDB" },
+    ],
+    image: "/assets/work/thump4.png",
+    live: "",
+    github: "",
+  },
+
+  {
+    num: "03",
+    category: "Web Development",
     title: "Backend Developer",
     description:
       "Amai Content is an application optimizing content and managing social networks like Facebook, Google My Business, Instagram, etc.",
@@ -60,7 +80,7 @@ const projects = [
   },
 
   {
-    num: "03",
+    num: "04",
     category: "Web Development",
     title: "Backend Developer",
     description:

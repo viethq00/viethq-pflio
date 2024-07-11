@@ -13,11 +13,11 @@ const stats = [
     text: "Projects Completed",
   },
   {
-    count: 100,
+    count: 10,
     text: "Happy Clients",
   },
   {
-    count: 50,
+    count: 100,
     text: "Cups of Coffee",
   },
 ];

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -36,6 +36,19 @@ const info = [
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  const [personalInfo, setPersonalInfo] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -47,17 +60,63 @@ const Contact = () => {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[38px]">
           <div className="xl:h-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form
+              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+              onSubmit={handleSubmit}
+            >
               <h3 className="text-4xl text-accent">Work together</h3>
               <p className="text-white/60">Work together...</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstname" placeholder="Firstname" />
-                <Input type="lastname" placeholder="Lastname" />
-                <Input type="email" placeholder="Email address" />
-                <Input type="phone" placeholder="Phone" />
+                <Input
+                  type="text"
+                  placeholder="Firstname"
+                  onChange={(e) =>
+                    setPersonalInfo((prev) => ({
+                      ...prev,
+                      firstname: e.target.value,
+                    }))
+                  }
+                />
+                <Input
+                  type="text"
+                  placeholder="Lastname"
+                  onChange={(e) =>
+                    setPersonalInfo((prev) => ({
+                      ...prev,
+                      lastname: e.target.value,
+                    }))
+                  }
+                />
+                <Input
+                  type="email"
+                  placeholder="Email address"
+                  onChange={(e) =>
+                    setPersonalInfo((prev) => ({
+                      ...prev,
+                      email: e.target.value,
+                    }))
+                  }
+                />
+                <Input
+                  type="tel"
+                  placeholder="Phone"
+                  onChange={(e) =>
+                    setPersonalInfo((prev) => ({
+                      ...prev,
+                      phone: e.target.value,
+                    }))
+                  }
+                />
               </div>
 
-              <Select>
+              <Select
+                onValueChange={(e) => {
+                  setPersonalInfo((prev) => ({
+                    ...prev,
+                    service: e,
+                  }));
+                }}
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
@@ -77,8 +136,14 @@ const Contact = () => {
               <Textarea
                 className="h-[200px]"
                 placeholder="Type your message here"
+                onChange={(e) =>
+                  setPersonalInfo((prev) => ({
+                    ...prev,
+                    message: e.target.value,
+                  }))
+                }
               />
-              <Button size="md" className="max-w-40">
+              <Button type="submit" size="md" className="max-w-40">
                 Send message
               </Button>
             </form>
