@@ -58,7 +58,7 @@ const Contact = () => {
     formData.append("message", personalInfo.message);
 
     axios
-      .post("http://103.163.119.27:1000/send-email", formData)
+      .post("http://api.trephuongbac.com/send-email", formData)
       .then((res) => {
         console.log(res.data);
         // Handle success if needed
