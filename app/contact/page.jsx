@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import axios from "axios";
 import {
   Select,
   SelectContent,
@@ -47,6 +48,14 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios
+      .post("http://103.163.119.27:1000/send-email", personalInfo)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
