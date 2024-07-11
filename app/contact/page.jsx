@@ -48,13 +48,24 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("firstname", personalInfo.firstname);
+    formData.append("lastname", personalInfo.lastname);
+    formData.append("email", personalInfo.email);
+    formData.append("phone", personalInfo.phone);
+    formData.append("service", personalInfo.service);
+    formData.append("message", personalInfo.message);
+
     axios
-      .post("http://103.163.119.27:1000/send-email", personalInfo)
+      .post("http://103.163.119.27:1000/send-email", formData)
       .then((res) => {
         console.log(res.data);
+        // Handle success if needed
       })
       .catch((err) => {
-        console.log(err);
+        console.error("Error:", err);
+        // Handle error if needed
       });
   };
 
