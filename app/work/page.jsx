@@ -53,7 +53,7 @@ const projects = [
       { name: "Node.js" },
       { name: "NestJS" },
       { name: "React.js" },
-      { name: "AWS: S3, EKS, RDS, Amplify" },
+      { name: "AWS: (S3, EKS, RDS, Amplify)" },
       { name: "Redis" },
       { name: "PostgreSQL" },
     ],
