@@ -43,6 +43,27 @@ const projects = [
 
   {
     num: "02",
+    category: "Web/Mobile Development",
+    title: "Freelancer Fullstack Developer",
+    description:
+      "VitaDairy, Traphaco Zalo mini app and Traphaco admin management.",
+    stack: [
+      { name: "JavaScript" },
+      { name: "TypeScript" },
+      { name: "Node.js" },
+      { name: "NestJS" },
+      { name: "React.js" },
+      { name: "AWS: S3, EKS, RDS, Amplify" },
+      { name: "Redis" },
+      { name: "PostgreSQL" },
+    ],
+    image: "/assets/work/thumpvtd.png",
+    live: "",
+    github: "",
+  },
+
+  {
+    num: "03",
     category: "Web Development",
     title: "Fullstack Developer",
     description:
@@ -62,7 +83,7 @@ const projects = [
   },
 
   {
-    num: "03",
+    num: "04",
     category: "Web Development",
     title: "Backend Developer",
     description:
@@ -80,7 +101,7 @@ const projects = [
   },
 
   {
-    num: "04",
+    num: "05",
     category: "Web Development",
     title: "Backend Developer",
     description:
