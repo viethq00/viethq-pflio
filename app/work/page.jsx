@@ -30,6 +30,7 @@ const projects = [
       { name: "Node.js" },
       { name: "Express.js" },
       { name: "Next.js" },
+      { name: "Docker" },
       { name: "React Native" },
       { name: "Kafka" },
       { name: "Redis" },
@@ -46,7 +47,7 @@ const projects = [
     category: "Web/Mobile Development",
     title: "Freelancer Fullstack Developer",
     description:
-      "VitaDairy, Traphaco Zalo mini app and Traphaco admin management.",
+      "VitaDairy: an application founded and developed by VitaDairy Vietnam Joint Stock Company, in  order  to  provide  consumers  with  the  safest  and  most  economical  solution  when  using VitaDairy's dairy products.",
     stack: [
       { name: "JavaScript" },
       { name: "TypeScript" },
