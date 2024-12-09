@@ -7,7 +7,6 @@ import { FiDownload } from "react-icons/fi";
 
 export default function Home() {
   const downloadCV = () => {
-    // Update with the correct path to your PDF file
     const fileUrl = "/assets/CV_HaQuocViet_FullstackDev.pdf";
     window.open(fileUrl, "_blank");
   };
