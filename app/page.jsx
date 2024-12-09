@@ -21,13 +21,18 @@ export default function Home() {
               Hello I am <br />{" "}
               <span className="text-accent">Ha Quoc Viet</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/80 ">
+            <p className="max-w-[500px] mb-4 text-white/80 ">
               I am a fullstack developer based in Vietnam, specializing in
               building and developing web applications from frontend to backend.
               I am passionate about creating innovative digital solutions that
               provide exceptional user experiences and exceed client
               expectations.
             </p>
+
+            <p className="max-w-[700px] text-xl text-orange-300 my-6">
+              &quot;How you do anything is how you do everything.&quot;
+            </p>
+
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button
                 variant="outline"

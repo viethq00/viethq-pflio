@@ -5,20 +5,20 @@ import CountUp from "react-countup";
 
 const stats = [
   {
-    count: 2,
+    count: 3,
     text: "Years of Experience",
   },
   {
-    count: 10,
+    count: 6,
     text: "Projects Completed",
   },
   {
-    count: 10,
+    count: 5,
     text: "Happy Clients",
   },
   {
-    count: 100,
-    text: "Cups of Coffee",
+    count: 2,
+    text: "Languages Spoken: English, Vietnamese",
   },
 ];
 
@@ -35,13 +35,13 @@ const Stats = () => {
               >
                 <CountUp
                   end={item.count}
-                  duration={4}
-                  delay={2}
+                  duration={2.5}
+                  delay={1.2}
                   className="text-4xl xl:text-6xl font-extrabold "
                 />
                 <p
                   className={`${
-                    item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
+                    item.text.length < 15 ? "max-w-[100px]" : "max-w-[200px]"
                   } leading-snug text-white/80`}
                 >
                   {item.text}

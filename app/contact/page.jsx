@@ -78,7 +78,7 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 1.6, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 1.0, duration: 0.4, ease: "easeIn" },
       }}
     >
       <div className="container mx-auto">
@@ -89,7 +89,10 @@ const Contact = () => {
               onSubmit={handleSubmit}
             >
               <h3 className="text-4xl text-accent">Work together</h3>
-              <p className="text-white/60">Cooperation would be valuable.</p>
+              <p className="text-white/60">
+                Guaranteed delivery of high-quality products and information,
+                tailored to meet your needs with precision and excellence.
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
                   type="text"

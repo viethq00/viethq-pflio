@@ -11,6 +11,7 @@ import {
   SiApachekafka,
   SiRedis,
   SiMysql,
+  SiPostgresql,
 } from "react-icons/si";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -19,7 +20,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { animate, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const about = {
@@ -37,7 +38,7 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "2+ years",
+      fieldValue: "3 years",
     },
     {
       fieldName: "Nationality",
@@ -71,6 +72,14 @@ const experience = {
       details:
         "In charge of creating microservices system, designing schema, handling back-end business logic and building interface (Web browser and Mobile) based on User Requirements Document. Language/Technology: JavaScript, TypeScript, NodeJS, ExpressJS, NextJS, React Native, Kafka, Redis, Nginx, MongoDB",
     },
+
+    {
+      company: "Vitadiary & Traphaco ZMA",
+      position: "Fullstack Developer",
+      duration: "May. 2024 – Now",
+      details:
+        "Responsible for bug fixing, system optimization, system deployment, and application interface development for the admin management system and Zalo mini app.. Language/Technology: JavaScript, TypeScript, NodeJS, NestJS, React.js, AWS S3, AWS EKS, AWSRDS, AWS Amplify, Redis, PostgreSQL",
+    },
     {
       company: "Amai Content",
       position: "Backend Developer",
@@ -97,7 +106,7 @@ const education = {
     {
       institution: "VNU - HUS",
       degree: "Computer & Information Science Advanced Program",
-      duration: "2018 - 2022",
+      duration: "2018 - 2023",
     },
   ],
 };
@@ -122,13 +131,15 @@ const skills = {
       icon: <SiTypescript />,
       name: "TypeScript",
     },
-    {
-      icon: <SiTailwindcss />,
-      name: "Tailwind CSS",
-    },
+
     {
       icon: <FaReact />,
       name: "React",
+    },
+
+    {
+      icon: <FaReact />,
+      name: "React Native",
     },
     {
       icon: <FaNodeJs />,
@@ -141,6 +152,11 @@ const skills = {
     {
       icon: <SiNextdotjs />,
       name: "Next.js",
+    },
+
+    {
+      icon: <SiTailwindcss />,
+      name: "Tailwind CSS",
     },
     {
       icon: <SiDocker />,
@@ -162,6 +178,10 @@ const skills = {
       icon: <SiMysql />,
       name: "MySQL",
     },
+    {
+      icon: <SiPostgresql />,
+      name: "PostgreSQL",
+    },
   ],
 };
 
@@ -171,7 +191,7 @@ const Resumes = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 1.4, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 1.0, duration: 0.4, ease: "easeIn" },
       }}
       className="min-h-[80px] flex items-center justify-center py-12 xl:py-0"
     >

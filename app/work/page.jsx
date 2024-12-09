@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
+import { BsArrowUpRight, BsGithub, BsPhone } from "react-icons/bs";
+import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
 
 import {
   Tooltip,
@@ -15,12 +16,36 @@ import {
 
 import Link from "next/link";
 import Image from "next/image";
-import WorkSliderBtns from "@/components/WorkSliderBtn";
 
 const projects = [
   {
     num: "01",
-    category: "Web/Mobile Development",
+    category: "Web & Mobile Development",
+    title: "Fullstack Developer",
+    description:
+      "Unlock the potential of the commodities market with NanoTrading, your go-to trading app designed specifically for nano-sized commodities. Whether you’re an experienced trader or just starting out, NanoTrading makes it easy to buy, sell, and manage your investments with precision.",
+    stack: [
+      { name: "JavaScript" },
+      { name: "TypeScript" },
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: "Next.js" },
+      { name: "Docker" },
+      { name: "React Native" },
+      { name: "Kafka" },
+      { name: "Redis" },
+      { name: "Nginx" },
+      { name: "MongoDB" },
+    ],
+    image: "/assets/work/MXVNano.png",
+    live: "https://nano.mxv.com.vn:8441/",
+    mobile: "",
+    github: "",
+  },
+
+  {
+    num: "02",
+    category: "Web & Mobile Development",
     title: "Fullstack Developer",
     description:
       "MXV Exchange Platform is an online trading platform facilitating the trading of commodities in energy and agricultural groups.",
@@ -38,13 +63,14 @@ const projects = [
       { name: "MongoDB" },
     ],
     image: "/assets/work/thump1.png",
-    live: "",
+    live: "https://sat.mxv.com.vn/",
+    mobile: "https://apps.apple.com/vn/app/mxv-rubber/id6483337283",
     github: "",
   },
 
   {
-    num: "02",
-    category: "Web/Mobile Development",
+    num: "03",
+    category: "Web Development",
     title: "Freelancer Fullstack Developer",
     description:
       "VitaDairy: an application founded and developed by VitaDairy Vietnam Joint Stock Company, in  order  to  provide  consumers  with  the  safest  and  most  economical  solution  when  using VitaDairy's dairy products.",
@@ -59,12 +85,13 @@ const projects = [
       { name: "PostgreSQL" },
     ],
     image: "/assets/work/thumpvtd.png",
+    mobile: "",
     live: "",
     github: "",
   },
 
   {
-    num: "03",
+    num: "04",
     category: "Web Development",
     title: "Fullstack Developer",
     description:
@@ -79,24 +106,8 @@ const projects = [
       { name: "MongoDB" },
     ],
     image: "/assets/work/thump4.png",
-    live: "",
-    github: "",
-  },
+    mobile: "",
 
-  {
-    num: "04",
-    category: "Web Development",
-    title: "Backend Developer",
-    description:
-      "Amai Content is an application optimizing content and managing social networks like Facebook, Google My Business, Instagram, etc.",
-    stack: [
-      { name: "JavaScript" },
-      { name: "Express.js" },
-      { name: "Next.js" },
-      { name: "MySQL" },
-      { name: "MongoDB" },
-    ],
-    image: "/assets/work/thump2.png",
     live: "",
     github: "",
   },
@@ -106,9 +117,31 @@ const projects = [
     category: "Web Development",
     title: "Backend Developer",
     description:
+      "Amai Content is an application optimizing content and managing social networks like Facebook, Google My Business, Instagram, etc.",
+    stack: [
+      { name: "JavaScript" },
+      { name: "Express.js" },
+      { name: "Selenium" },
+      { name: "Puppeteer" },
+      { name: "Next.js" },
+      { name: "MySQL" },
+      { name: "MongoDB" },
+    ],
+    image: "/assets/work/thump2.png",
+    mobile: "",
+    live: "https://amaicontent.com/",
+    github: "",
+  },
+
+  {
+    num: "06",
+    category: "Web Development",
+    title: "Backend Developer",
+    description:
       "JUSEI Master is a study application for the national examination for Judo therapy experts.",
     stack: [{ name: "TypeScript" }, { name: "Nest.js" }, { name: "MongoDB" }],
     image: "/assets/work/thump3.png",
+    mobile: "",
     live: "",
     github: "",
   },
@@ -122,12 +155,22 @@ const Work = () => {
     setProject(projects[currentIndex]);
   };
 
+  const swiperRef = useRef(null);
+
+  const handlePrevSlide = () => {
+    swiperRef.current.swiper.slidePrev();
+  };
+
+  const handleNextSlide = () => {
+    swiperRef.current.swiper.slideNext();
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 1.6, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 1.0, duration: 0.4, ease: "easeIn" },
       }}
     >
       <div className="container mx-auto">
@@ -151,7 +194,7 @@ const Work = () => {
               </ul>
               <div className="border border-white/20"></div>
               <div className="flex items-center gap-4">
-                <Link href={project.live}>
+                <Link href={project.live} target="_blank">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -159,13 +202,27 @@ const Work = () => {
                       </TooltipTrigger>
 
                       <TooltipContent>
-                        <p>Live Project</p>
+                        <p>Live Project (Web)</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
 
-                <Link href={project.github}>
+                <Link href={project.mobile} target="_blank">
+                  <TooltipProvider delayDuration={100}>
+                    <Tooltip>
+                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                        <BsPhone className="text-white text-3xl group-hover:text-accent" />
+                      </TooltipTrigger>
+
+                      <TooltipContent>
+                        <p>Live Project (Mobile)</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Link>
+
+                <Link href={project.github} target="_blank">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group ">
@@ -183,6 +240,7 @@ const Work = () => {
           </div>
           <div className="w-full xl:w-[50%]">
             <Swiper
+              ref={swiperRef}
               spaceBetween={30}
               slidesPerView={1}
               className="xl:h-[520px] mb-12"
@@ -194,20 +252,21 @@ const Work = () => {
                     <div className="h-[460px] relative group flex justify-center bg-pink-50/20 ">
                       <div className="absolute top-0 bottom-0 w-full h-full bg-back/10 z-10"></div>
                       <div className="relative w-full h-full">
-                        <Image
-                          src={project.image}
-                          fill
-                          className="object-fill"
-                        />
+                        <Image src={project.image} alt={project.title} fill />
                       </div>
                     </div>
                   </SwiperSlide>
                 );
               })}
-              <WorkSliderBtns
-                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
-              />
+
+              <div className="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none">
+                <button className="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all">
+                  <PiCaretLeftBold onClick={handlePrevSlide} />
+                </button>
+                <button className="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all">
+                  <PiCaretRightBold onClick={handleNextSlide} />
+                </button>
+              </div>
             </Swiper>
           </div>
         </div>
