@@ -18,7 +18,9 @@ export default function Home() {
             <span className="text-xl">Software Developer</span>
             <h1 className="h1 mb-6">
               Hello I am <br />{" "}
-              <span className="text-accent">Ha Quoc Viet</span>
+              <span className="text-accent">
+                VIETRANGTO - NEW KING FOR THE THRONE
+              </span>
             </h1>
             <p className="max-w-[500px] mb-4 text-white/80 ">
               I am a fullstack developer based in Vietnam, specializing in
