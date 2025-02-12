@@ -7,7 +7,7 @@ import { FiDownload } from "react-icons/fi";
 
 export default function Home() {
   const downloadCV = () => {
-    const fileUrl = "/assets/CV_HaQuocViet_FullstackDev.pdf";
+    const fileUrl = "/assets/CV_HaQuocViet_SoftwareEngineer.pdf";
     window.open(fileUrl, "_blank");
   };
   return (
