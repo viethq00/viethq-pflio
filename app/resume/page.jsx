@@ -38,7 +38,7 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "3 years",
+      fieldValue: "4 years",
     },
     {
       fieldName: "Nationality",
@@ -66,9 +66,16 @@ const experience = {
     "I have worked on a variety of projects using different technologies.",
   item: [
     {
+      company: "CMC Global",
+      position: "Fullstack Developer - Technical Leader",
+      duration: "Mar. 2025 - Now",
+      details:
+        "Probationary",
+    },
+    {
       company: "MXV Exchange Platform",
       position: "Fullstack Developer",
-      duration: "Sep. 2023 – Now",
+      duration: "Sep. 2023 – Apr. 2025",
       details:
         "In charge of creating microservices system, designing schema, handling back-end business logic and building interface (Web browser and Mobile) based on User Requirements Document. Language/Technology: JavaScript, TypeScript, NodeJS, ExpressJS, NextJS, React Native, Kafka, Redis, Nginx, MongoDB",
     },
@@ -76,21 +83,21 @@ const experience = {
     {
       company: "Vitadiary & Traphaco ZMA",
       position: "Fullstack Developer",
-      duration: "May. 2024 – Now",
+      duration: "May. 2023 – Now",
       details:
         "Responsible for bug fixing, system optimization, system deployment, and application interface development for the admin management system and Zalo mini app.. Language/Technology: JavaScript, TypeScript, NodeJS, NestJS, React.js, AWS S3, AWS EKS, AWSRDS, AWS Amplify, Redis, PostgreSQL",
     },
     {
       company: "Amai Content",
       position: "Backend Developer",
-      duration: "Nov. 2022 – Sep. 2023",
+      duration: "Nov. 2021 – Sep. 2022",
       details:
         "In charge of creating a transaction management system for automated payment integration with Vietcombank and A Chau Bank, a business profile management system based on Google Business Profile APIs, and a realtime messaging platform. Language/Technology: Javascript, ExpressJS, NextJS, MySQL, MongoDB",
     },
     {
       company: "JUSEI Master",
       position: "Backend Developer",
-      duration: "Mar. 2022 – Dec. 2022",
+      duration: "Mar. 2021 – Dec. 2021",
       details:
         "In charge of designing schema and handling back-end business logic for analyzing data to create general and in-depth statistics. Language/Technology: Typescript, NestJS, MongoDB.",
     },
