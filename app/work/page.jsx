@@ -20,10 +20,34 @@ import Image from "next/image";
 const projects = [
   {
     num: "01",
-    category: "Web & Mobile Development",
-    title: "Fullstack Developer",
+    category: "Fintech & Web Development",
+    title: "Technical Leader - Brighte",
     description:
-      "Unlock the potential of the commodities market with NanoTrading, your go-to trading app designed specifically for nano-sized commodities. Whether you’re an experienced trader or just starting out, NanoTrading makes it easy to buy, sell, and manage your investments with precision.",
+      "Brighte is an Australian fintech company specializing in clean-energy home installations. Led a cross-functional team of 12 members to develop vendor webhook management and CDR income detection systems. Designed comprehensive webhook management with retry mechanisms and built robust income analysis engine using bank transaction data.",
+    stack: [
+      { name: "JavaScript" },
+      { name: "TypeScript" },
+      { name: "Node.js" },
+      { name: "NestJS" },
+      { name: "ReactJS" },
+      { name: "Next.js" },
+      { name: "PostgreSQL" },
+      { name: "DynamoDB" },
+      { name: "AWS Lambda" },
+      { name: "AWS EventBridge" },
+    ],
+    image: "/assets/work/thump1.png",
+    live: "",
+    mobile: "",
+    github: "",
+  },
+
+  {
+    num: "02",
+    category: "Web & Mobile Development",
+    title: "Fullstack Developer - NanoTrading",
+    description:
+      "Unlock the potential of the commodities market with NanoTrading, your go-to trading app designed specifically for nano-sized commodities. Whether you're an experienced trader or just starting out, NanoTrading makes it easy to buy, sell, and manage your investments with precision.",
     stack: [
       { name: "JavaScript" },
       { name: "TypeScript" },
@@ -44,11 +68,11 @@ const projects = [
   },
 
   {
-    num: "02",
+    num: "03",
     category: "Web & Mobile Development",
-    title: "Fullstack Developer",
+    title: "Fullstack Developer - MXV Exchange",
     description:
-      "MXV Exchange Platform is an online trading platform facilitating the trading of commodities in energy and agricultural groups.",
+      "MXV Exchange Platform is an online trading platform facilitating the trading of commodities in energy and agricultural groups. Designed and implemented microservices-based architecture for high-volume trading transactions with real-time data processing.",
     stack: [
       { name: "JavaScript" },
       { name: "TypeScript" },
@@ -61,6 +85,7 @@ const projects = [
       { name: "Redis" },
       { name: "Nginx" },
       { name: "MongoDB" },
+      { name: "PostgreSQL" },
     ],
     image: "/assets/work/thump1.png",
     live: "https://sat.mxv.com.vn/",
@@ -69,18 +94,19 @@ const projects = [
   },
 
   {
-    num: "03",
+    num: "04",
     category: "Web Development",
-    title: "Freelancer Fullstack Developer",
+    title: "Freelancer Fullstack Developer - VitaDairy",
     description:
-      "VitaDairy: an application founded and developed by VitaDairy Vietnam Joint Stock Company, in  order  to  provide  consumers  with  the  safest  and  most  economical  solution  when  using VitaDairy's dairy products.",
+      "VitaDairy: an application founded and developed by VitaDairy Vietnam Joint Stock Company, in order to provide consumers with the safest and most economical solution when using VitaDairy's dairy products. Developed and optimized UI for admin management system.",
     stack: [
       { name: "JavaScript" },
       { name: "TypeScript" },
       { name: "Node.js" },
       { name: "NestJS" },
       { name: "React.js" },
-      { name: "AWS: (S3, EKS, RDS, Amplify)" },
+      { name: "AWS S3" },
+      { name: "AWS RDS" },
       { name: "Redis" },
       { name: "PostgreSQL" },
     ],
@@ -91,11 +117,34 @@ const projects = [
   },
 
   {
-    num: "04",
-    category: "Web Development",
-    title: "Fullstack Developer",
+    num: "05",
+    category: "Mobile Development",
+    title: "Freelancer Fullstack Developer - Traphaco ZMA",
     description:
-      "Discover TrePhuongBac, your premier online store for eco-friendly bamboo items. We offer stylish home décor, kitchenware, furniture, and accessories, all crafted from premium bamboo. Prioritizing sustainability and quality, TrePhuongBac ensures each product enhances your lifestyle while being environmentally friendly. Shop now for the best bamboo products and enjoy exceptional service.",
+      "Traphaco Zalo Mini App: Developed and optimized UI for Traphaco's Zalo mini app. Refactored backend logic for loyalty application, fixing critical bugs and improving system performance for better user experience.",
+    stack: [
+      { name: "JavaScript" },
+      { name: "TypeScript" },
+      { name: "Node.js" },
+      { name: "NestJS" },
+      { name: "React.js" },
+      { name: "AWS S3" },
+      { name: "AWS RDS" },
+      { name: "Redis" },
+      { name: "PostgreSQL" },
+    ],
+    image: "/assets/work/thump2.png",
+    mobile: "",
+    live: "",
+    github: "",
+  },
+
+  {
+    num: "06",
+    category: "E-commerce Development",
+    title: "Fullstack Developer - TrePhuongBac",
+    description:
+      "Discover TrePhuongBac, your premier online store for eco-friendly bamboo items. We offer stylish home décor, kitchenware, furniture, and accessories, all crafted from premium bamboo. Prioritizing sustainability and quality, TrePhuongBac ensures each product enhances your lifestyle while being environmentally friendly.",
     stack: [
       { name: "JavaScript" },
       { name: "TypeScript" },
@@ -107,19 +156,19 @@ const projects = [
     ],
     image: "/assets/work/thump4.png",
     mobile: "",
-
     live: "",
     github: "",
   },
 
   {
-    num: "05",
-    category: "Web Development",
-    title: "Backend Developer",
+    num: "07",
+    category: "Social Media Management",
+    title: "Backend Developer - Amai Content",
     description:
-      "Amai Content is an application optimizing content and managing social networks like Facebook, Google My Business, Instagram, etc.",
+      "Amai Content is an application optimizing content and managing social networks like Facebook, Google My Business, Instagram, etc. Built transaction management system for automated payments integrated with Vietcombank and A Chau Bank. Developed real-time messaging system for multi-platform content management using Facebook Messenger API.",
     stack: [
       { name: "JavaScript" },
+      { name: "TypeScript" },
       { name: "Express.js" },
       { name: "Selenium" },
       { name: "Puppeteer" },
@@ -134,12 +183,16 @@ const projects = [
   },
 
   {
-    num: "06",
-    category: "Web Development",
-    title: "Backend Developer",
+    num: "08",
+    category: "Educational Technology",
+    title: "Backend Developer - JUSEI Master",
     description:
-      "JUSEI Master is a study application for the national examination for Judo therapy experts.",
-    stack: [{ name: "TypeScript" }, { name: "Nest.js" }, { name: "MongoDB" }],
+      "JUSEI Master is a study application for the national examination for Judo therapy experts. Developed data analysis and statistics features, optimizing performance of backend queries. Designed and implemented scalable MongoDB schemas to handle large data sets efficiently.",
+    stack: [
+      { name: "TypeScript" },
+      { name: "NestJS" },
+      { name: "MongoDB" },
+    ],
     image: "/assets/work/thump3.png",
     mobile: "",
     live: "",

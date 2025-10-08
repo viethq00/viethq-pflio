@@ -12,6 +12,14 @@ import {
   SiRedis,
   SiMysql,
   SiPostgresql,
+  SiExpress,
+  SiAmazonaws,
+  SiNginx,
+  SiGit,
+  SiGithub,
+  SiGitlab,
+  SiJira,
+  SiTrello,
 } from "react-icons/si";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -38,7 +46,7 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "4 years",
+      fieldValue: "5 years",
     },
     {
       fieldName: "Nationality",
@@ -70,36 +78,36 @@ const experience = {
       position: "Fullstack Developer - Technical Leader",
       duration: "Mar. 2025 - Now",
       details:
-        "Probationary",
+        "Leading a cross-functional team of 12 members to develop and deliver product features with a strong focus on performance, scalability, and timely delivery. Technologies: JavaScript, TypeScript, Node.js, NestJS, ReactJS, Next.js, PostgreSQL, DynamoDB, AWS Lambda, AWS EventBridge.",
     },
     {
       company: "MXV Exchange Platform",
       position: "Fullstack Developer",
-      duration: "Sep. 2023 – Apr. 2025",
+      duration: "Sep. 2023 – Mar. 2025",
       details:
-        "In charge of creating microservices system, designing schema, handling back-end business logic and building interface (Web browser and Mobile) based on User Requirements Document. Language/Technology: JavaScript, TypeScript, NodeJS, ExpressJS, NextJS, React Native, Kafka, Redis, Nginx, MongoDB",
+        "Designed and implemented microservices-based architecture for high-volume trading transactions. Developed scalable backend APIs with ExpressJS and NestJS, integrated Kafka and Redis for real-time data processing, optimized MongoDB and PostgreSQL schemas, and built frontend in Next.js and React Native. Technologies: JavaScript, TypeScript, NodeJS, ExpressJS, NestJS, NextJS, React Native, Kafka, Redis, Nginx, MongoDB, PostgreSQL, Docker.",
     },
 
     {
       company: "Vitadiary & Traphaco ZMA",
-      position: "Fullstack Developer",
-      duration: "May. 2023 – Now",
+      position: "Freelance Developer",
+      duration: "May. 2023 – Jun. 2025",
       details:
-        "Responsible for bug fixing, system optimization, system deployment, and application interface development for the admin management system and Zalo mini app.. Language/Technology: JavaScript, TypeScript, NodeJS, NestJS, React.js, AWS S3, AWS EKS, AWSRDS, AWS Amplify, Redis, PostgreSQL",
+        "Developed and optimized UI for VitaDairy's admin management and Traphaco Zalo mini app. Refactored backend logic and fixed critical bugs for loyalty applications. Technologies: JavaScript, TypeScript, NodeJS, NestJS, React.js, AWS S3, AWS RDS, Redis, PostgreSQL.",
     },
     {
       company: "Amai Content",
       position: "Backend Developer",
-      duration: "Nov. 2021 – Sep. 2022",
+      duration: "Dec. 2021 – Sep. 2023",
       details:
-        "In charge of creating a transaction management system for automated payment integration with Vietcombank and A Chau Bank, a business profile management system based on Google Business Profile APIs, and a realtime messaging platform. Language/Technology: Javascript, ExpressJS, NextJS, MySQL, MongoDB",
+        "Built transaction management system for automated payments integrated with Vietcombank and A Chau Bank. Developed real-time messaging system for multi-platform content management using Facebook Messenger API. Created backend services using Google Business Profile API and automated workflow for publishing content across multiple social media platforms. Technologies: JavaScript, TypeScript, NodeJS, ExpressJS, MySQL, MongoDB.",
     },
     {
       company: "JUSEI Master",
       position: "Backend Developer",
-      duration: "Mar. 2021 – Dec. 2021",
+      duration: "Feb. 2021 – Dec. 2021",
       details:
-        "In charge of designing schema and handling back-end business logic for analyzing data to create general and in-depth statistics. Language/Technology: Typescript, NestJS, MongoDB.",
+        "Developed data analysis and statistics features for the national examination for Judo therapy experts. Designed and implemented scalable MongoDB schemas to handle large data sets efficiently. Technologies: TypeScript, NestJS, MongoDB.",
     },
   ],
 };
@@ -115,6 +123,27 @@ const education = {
       degree: "Computer & Information Science Advanced Program",
       duration: "2018 - 2023",
     },
+  ],
+};
+
+const additionalSkills = {
+  title: "Additional Skills & Tools",
+  description: "Other technologies and tools I work with:",
+  skillList: [
+    "DynamoDB",
+    "AWS S3",
+    "AWS EC2", 
+    "AWS ECS",
+    "AWS CloudFront",
+    "AWS RDS",
+    "AWS Lambda",
+    "AWS EventBridge",
+    "Puppeteer",
+    "Selenium",
+    "Windows OS",
+    "Unix OS",
+    "Visual Studio Code",
+    "English (B2 Level)",
   ],
 };
 
@@ -189,6 +218,38 @@ const skills = {
       icon: <SiPostgresql />,
       name: "PostgreSQL",
     },
+    {
+      icon: <SiExpress />,
+      name: "ExpressJS",
+    },
+    {
+      icon: <SiAmazonaws />,
+      name: "AWS",
+    },
+    {
+      icon: <SiNginx />,
+      name: "Nginx",
+    },
+    {
+      icon: <SiGit />,
+      name: "Git",
+    },
+    {
+      icon: <SiGithub />,
+      name: "GitHub",
+    },
+    {
+      icon: <SiGitlab />,
+      name: "GitLab",
+    },
+    {
+      icon: <SiJira />,
+      name: "Jira",
+    },
+    {
+      icon: <SiTrello />,
+      name: "Trello",
+    },
   ],
 };
 
@@ -211,6 +272,7 @@ const Resumes = () => {
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
+            <TabsTrigger value="additional-skills">Additional Skills</TabsTrigger>
             <TabsTrigger value="about">About</TabsTrigger>
           </TabsList>
 
@@ -304,6 +366,30 @@ const Resumes = () => {
                     );
                   })}
                 </ul>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="additional-skills" className="w-full h-full">
+              <div className="flex flex-col gap-[30px]">
+                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h3 className="text-4xl font-bold">{additionalSkills.title}</h3>
+                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                    {additionalSkills.description}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+                  {additionalSkills.skillList.map((skill, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="bg-[#232329] rounded-xl p-4 flex justify-center items-center min-h-[80px]"
+                      >
+                        <span className="text-white text-sm text-center">{skill}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </TabsContent>
 
