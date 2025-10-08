@@ -1,11 +1,8 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 
 import { BsArrowUpRight, BsGithub, BsPhone } from "react-icons/bs";
-import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
 
 import {
   Tooltip,
@@ -15,7 +12,6 @@ import {
 } from "@radix-ui/react-tooltip";
 
 import Link from "next/link";
-import Image from "next/image";
 
 const projects = [
   {
@@ -36,7 +32,6 @@ const projects = [
       { name: "AWS Lambda" },
       { name: "AWS EventBridge" },
     ],
-    image: "/assets/work/thump1.png",
     live: "",
     mobile: "",
     github: "",
@@ -61,7 +56,6 @@ const projects = [
       { name: "Nginx" },
       { name: "MongoDB" },
     ],
-    image: "/assets/work/MXVNano.png",
     live: "https://nano.mxv.com.vn:8441/",
     mobile: "",
     github: "",
@@ -87,7 +81,6 @@ const projects = [
       { name: "MongoDB" },
       { name: "PostgreSQL" },
     ],
-    image: "/assets/work/thump1.png",
     live: "https://sat.mxv.com.vn/",
     mobile: "https://apps.apple.com/vn/app/mxv-rubber/id6483337283",
     github: "",
@@ -110,7 +103,6 @@ const projects = [
       { name: "Redis" },
       { name: "PostgreSQL" },
     ],
-    image: "/assets/work/thumpvtd.png",
     mobile: "",
     live: "",
     github: "",
@@ -133,7 +125,6 @@ const projects = [
       { name: "Redis" },
       { name: "PostgreSQL" },
     ],
-    image: "/assets/work/thump2.png",
     mobile: "",
     live: "",
     github: "",
@@ -154,7 +145,6 @@ const projects = [
       { name: "Nginx" },
       { name: "MongoDB" },
     ],
-    image: "/assets/work/thump4.png",
     mobile: "",
     live: "",
     github: "",
@@ -176,7 +166,6 @@ const projects = [
       { name: "MySQL" },
       { name: "MongoDB" },
     ],
-    image: "/assets/work/thump2.png",
     mobile: "",
     live: "https://amaicontent.com/",
     github: "",
@@ -193,7 +182,6 @@ const projects = [
       { name: "NestJS" },
       { name: "MongoDB" },
     ],
-    image: "/assets/work/thump3.png",
     mobile: "",
     live: "",
     github: "",
@@ -201,23 +189,6 @@ const projects = [
 ];
 
 const Work = () => {
-  const [project, setProject] = useState(projects[0]);
-
-  const handleSlideChange = (swiper) => {
-    const currentIndex = swiper.activeIndex;
-    setProject(projects[currentIndex]);
-  };
-
-  const swiperRef = useRef(null);
-
-  const handlePrevSlide = () => {
-    swiperRef.current.swiper.slidePrev();
-  };
-
-  const handleNextSlide = () => {
-    swiperRef.current.swiper.slideNext();
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -225,102 +196,116 @@ const Work = () => {
         opacity: 1,
         transition: { delay: 1.0, duration: 0.4, ease: "easeIn" },
       }}
+      className="min-h-[80px] flex items-center justify-center py-12 xl:py-0"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-            <div className="flex flex-col gap-[30px] h-[50%] ">
-              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
-                {project.num}
-              </div>
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category}
-              </h2>
-              <p className="text-white/60">{project.description}</p>
-              <ul className="flex flex-wrap gap-4">
-                {project.stack.map((item, index) => (
-                  <li key={index} className="text-xl text-accent">
-                    {item.name}
-                    {index !== project.stack.length - 1 && ","}
-                  </li>
-                ))}
-              </ul>
-              <div className="border border-white/20"></div>
-              <div className="flex items-center gap-4">
-                <Link href={project.live} target="_blank">
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-
-                      <TooltipContent>
-                        <p>Live Project (Web)</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
-
-                <Link href={project.mobile} target="_blank">
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsPhone className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-
-                      <TooltipContent>
-                        <p>Live Project (Mobile)</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
-
-                <Link href={project.github} target="_blank">
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group ">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-
-                      <TooltipContent>
-                        <p>Github repository</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
-              </div>
-            </div>
+        <div className="flex flex-col gap-[60px]">
+          {/* Header Section */}
+          <div className="text-center xl:text-left">
+            <h2 className="text-4xl font-bold mb-4">My Work</h2>
+            <p className="text-white/60 max-w-[600px] mx-auto xl:mx-0">
+              A collection of projects showcasing my expertise in full-stack development, 
+              system architecture, and technical leadership across various domains.
+            </p>
           </div>
-          <div className="w-full xl:w-[50%]">
-            <Swiper
-              ref={swiperRef}
-              spaceBetween={30}
-              slidesPerView={1}
-              className="xl:h-[520px] mb-12"
-              onSlideChange={handleSlideChange}
-            >
-              {projects.map((project, index) => {
-                return (
-                  <SwiperSlide key={index}>
-                    <div className="h-[460px] relative group flex justify-center bg-pink-50/20 ">
-                      <div className="absolute top-0 bottom-0 w-full h-full bg-back/10 z-10"></div>
-                      <div className="relative w-full h-full">
-                        <Image src={project.image} alt={project.title} fill />
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
 
-              <div className="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none">
-                <button className="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all">
-                  <PiCaretLeftBold onClick={handlePrevSlide} />
-                </button>
-                <button className="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all">
-                  <PiCaretRightBold onClick={handleNextSlide} />
-                </button>
-              </div>
-            </Swiper>
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  transition: { delay: index * 0.1, duration: 0.5 }
+                }}
+                className="bg-[#232329] rounded-xl p-8 hover:bg-[#2a2a32] transition-all duration-300 group"
+              >
+                {/* Project Number & Category */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="text-6xl font-extrabold text-transparent text-outline">
+                    {project.num}
+                  </div>
+                  <span className="text-accent text-sm font-medium px-3 py-1 bg-accent/10 rounded-full">
+                    {project.category}
+                  </span>
+                </div>
+
+                {/* Project Title */}
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-accent transition-colors duration-300">
+                  {project.title}
+                </h3>
+
+                {/* Project Description */}
+                <p className="text-white/70 mb-6 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Technology Stack */}
+                <div className="mb-6">
+                  <h4 className="text-white font-medium mb-3">Technologies Used:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-3 py-1 bg-white/5 text-white/80 text-sm rounded-md hover:bg-accent/20 hover:text-accent transition-colors duration-200"
+                      >
+                        {tech.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-4">
+                  {project.live && (
+                    <Link href={project.live} target="_blank">
+                      <TooltipProvider delayDuration={100}>
+                        <Tooltip>
+                          <TooltipTrigger className="w-[50px] h-[50px] rounded-full bg-white/5 flex justify-center items-center group hover:bg-accent/20 transition-colors duration-200">
+                            <BsArrowUpRight className="text-white text-xl group-hover:text-accent" />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Live Project (Web)</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </Link>
+                  )}
+
+                  {project.mobile && (
+                    <Link href={project.mobile} target="_blank">
+                      <TooltipProvider delayDuration={100}>
+                        <Tooltip>
+                          <TooltipTrigger className="w-[50px] h-[50px] rounded-full bg-white/5 flex justify-center items-center group hover:bg-accent/20 transition-colors duration-200">
+                            <BsPhone className="text-white text-xl group-hover:text-accent" />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Live Project (Mobile)</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </Link>
+                  )}
+
+                  {project.github && (
+                    <Link href={project.github} target="_blank">
+                      <TooltipProvider delayDuration={100}>
+                        <Tooltip>
+                          <TooltipTrigger className="w-[50px] h-[50px] rounded-full bg-white/5 flex justify-center items-center group hover:bg-accent/20 transition-colors duration-200">
+                            <BsGithub className="text-white text-xl group-hover:text-accent" />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Github Repository</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </Link>
+                  )}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
