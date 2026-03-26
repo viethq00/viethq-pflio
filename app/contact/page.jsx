@@ -5,17 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
+  Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 import { useToast } from "@/components/ui/use-toast";
+import { motion } from "framer-motion";
 
 const info = [
   {
@@ -30,119 +24,98 @@ const info = [
   },
   {
     icon: <FaMapMarkedAlt />,
-    title: "Address",
+    title: "Location",
     description: "Ha Noi, Vietnam",
   },
 ];
 
-import { motion } from "framer-motion";
-
 const Contact = () => {
   const { toast } = useToast();
-
+  const [loading, setLoading] = useState(false);
   const [personalInfo, setPersonalInfo] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
+    firstname: "", lastname: "", email: "", phone: "", service: "", message: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const formData = new FormData();
-    formData.append("firstname", personalInfo.firstname);
-    formData.append("lastname", personalInfo.lastname);
-    formData.append("email", personalInfo.email);
-    formData.append("phone", personalInfo.phone);
-    formData.append("service", personalInfo.service);
-    formData.append("message", personalInfo.message);
+    Object.entries(personalInfo).forEach(([key, val]) => formData.append(key, val));
 
     axios
       .post("https://api.trephuongbac.com/users/send-email", formData)
-      .then((res) => {
-        toast({
-          title: "Message sent successfully!",
-          description: "I will contact you soon!",
-        });
+      .then(() => {
+        toast({ title: "Message sent!", description: "I'll get back to you soon." });
+        setPersonalInfo({ firstname: "", lastname: "", email: "", phone: "", service: "", message: "" });
       })
-      .catch((err) => {
-        console.log("Error:", err);
-      });
+      .catch((err) => console.log("Error:", err))
+      .finally(() => setLoading(false));
   };
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 1.0, duration: 0.4, ease: "easeIn" },
-      }}
+      animate={{ opacity: 1, transition: { delay: 0.3, duration: 0.5 } }}
+      className="py-12 xl:py-16"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row gap-[38px]">
-          <div className="xl:h-[54%] order-2 xl:order-none">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0, transition: { delay: 0.4, duration: 0.5 } }}
+          className="text-center xl:text-left mb-12"
+        >
+          <span className="text-accent/70 text-sm tracking-widest uppercase font-medium">Contact</span>
+          <h2 className="h2 mt-2">
+            Let&apos;s <span className="text-accent">Work Together</span>
+          </h2>
+          <p className="text-white/50 mt-3 max-w-[500px] mx-auto xl:mx-0 text-sm leading-relaxed">
+            Have a project in mind? I&apos;d love to hear about it. Drop me a message and I&apos;ll respond promptly.
+          </p>
+        </motion.div>
+
+        <div className="flex flex-col xl:flex-row gap-8 xl:gap-12">
+          {/* Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0, transition: { delay: 0.6, duration: 0.5 } }}
+            className="flex-1 order-2 xl:order-none"
+          >
             <form
-              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+              className="glass-card rounded-2xl p-8 xl:p-10 flex flex-col gap-5 hover:box-glow transition-all duration-300"
               onSubmit={handleSubmit}
             >
-              <h3 className="text-4xl text-accent">Work together</h3>
-              <p className="text-white/60">
-                Guaranteed delivery of high-quality products and information,
-                tailored to meet your needs with precision and excellence.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   type="text"
-                  placeholder="Firstname"
-                  onChange={(e) =>
-                    setPersonalInfo((prev) => ({
-                      ...prev,
-                      firstname: e.target.value,
-                    }))
-                  }
+                  placeholder="First name"
+                  value={personalInfo.firstname}
+                  onChange={(e) => setPersonalInfo((p) => ({ ...p, firstname: e.target.value }))}
                 />
                 <Input
                   type="text"
-                  placeholder="Lastname"
-                  onChange={(e) =>
-                    setPersonalInfo((prev) => ({
-                      ...prev,
-                      lastname: e.target.value,
-                    }))
-                  }
+                  placeholder="Last name"
+                  value={personalInfo.lastname}
+                  onChange={(e) => setPersonalInfo((p) => ({ ...p, lastname: e.target.value }))}
                 />
                 <Input
                   type="email"
                   placeholder="Email address"
-                  onChange={(e) =>
-                    setPersonalInfo((prev) => ({
-                      ...prev,
-                      email: e.target.value,
-                    }))
-                  }
+                  value={personalInfo.email}
+                  onChange={(e) => setPersonalInfo((p) => ({ ...p, email: e.target.value }))}
                 />
                 <Input
                   type="tel"
-                  placeholder="Phone"
-                  onChange={(e) =>
-                    setPersonalInfo((prev) => ({
-                      ...prev,
-                      phone: e.target.value,
-                    }))
-                  }
+                  placeholder="Phone number"
+                  value={personalInfo.phone}
+                  onChange={(e) => setPersonalInfo((p) => ({ ...p, phone: e.target.value }))}
                 />
               </div>
 
               <Select
-                onValueChange={(e) => {
-                  setPersonalInfo((prev) => ({
-                    ...prev,
-                    service: e,
-                  }));
-                }}
+                value={personalInfo.service}
+                onValueChange={(v) => setPersonalInfo((p) => ({ ...p, service: v }))}
               >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a service" />
@@ -150,46 +123,56 @@ const Contact = () => {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Services</SelectLabel>
-                    <SelectItem value="web-development">
-                      Web Development
-                    </SelectItem>
-                    <SelectItem value="mobile-development">
-                      Mobile Development
-                    </SelectItem>
-                    <SelectItem value="ui-ux-design">UI/UX Design</SelectItem>
+                    <SelectItem value="web-development">Web Development</SelectItem>
+                    <SelectItem value="mobile-development">Mobile Development</SelectItem>
+                    <SelectItem value="system-architecture">System Architecture</SelectItem>
+                    <SelectItem value="technical-leadership">Technical Leadership</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
+
               <Textarea
-                className="h-[200px]"
-                placeholder="Type your message here"
-                onChange={(e) =>
-                  setPersonalInfo((prev) => ({
-                    ...prev,
-                    message: e.target.value,
-                  }))
-                }
+                className="h-[180px] resize-none"
+                placeholder="Tell me about your project..."
+                value={personalInfo.message}
+                onChange={(e) => setPersonalInfo((p) => ({ ...p, message: e.target.value }))}
               />
-              <Button type="submit" size="md" className="max-w-40">
-                Send message
+
+              <Button
+                type="submit"
+                size="md"
+                disabled={loading}
+                className="self-start min-w-[160px] relative overflow-hidden group"
+              >
+                <span className="relative z-10">{loading ? "Sending…" : "Send Message"}</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-accent to-accent-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Button>
             </form>
-          </div>
-          <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none xl:mb-0">
-            <ul className="flex flex-col gap-3">
-              {info.map((item, index) => (
-                <li key={index} className="flex gap-4 items-center mb-6">
-                  <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <p className="text-xl text-white">{item.title}</p>
-                    <h3 className="text-white/60">{item.description}</h3>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+          </motion.div>
+
+          {/* Info cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0, transition: { delay: 0.7, duration: 0.5 } }}
+            className="flex flex-col gap-4 order-1 xl:order-none xl:w-[300px] xl:justify-center"
+          >
+            {info.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0, transition: { delay: 0.8 + index * 0.1, duration: 0.4 } }}
+                className="glass-card rounded-xl p-5 flex items-center gap-4 hover:box-glow hover:border-accent/25 transition-all duration-300 group"
+              >
+                <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-primary group-hover:shadow-[0_0_20px_rgba(0,255,153,0.4)] transition-all duration-300 shrink-0">
+                  {item.icon}
+                </div>
+                <div>
+                  <p className="text-white/50 text-xs uppercase tracking-wider font-medium mb-0.5">{item.title}</p>
+                  <h3 className="text-white font-medium text-sm xl:text-base">{item.description}</h3>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </motion.div>

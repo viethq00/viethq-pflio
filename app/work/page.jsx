@@ -1,312 +1,238 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-
 import { BsArrowUpRight, BsGithub, BsPhone } from "react-icons/bs";
-
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
-
 import Link from "next/link";
 
 const projects = [
   {
     num: "01",
-    category: "Fintech & Web Development",
-    title: "Technical Leader - Brighte",
+    category: "Fintech",
+    title: "Technical Leader — Brighte",
     description:
-      "Brighte is an Australian fintech company specializing in clean-energy home installations. Led a cross-functional team of 12 members to develop vendor webhook management and CDR income detection systems. Designed comprehensive webhook management with retry mechanisms and built robust income analysis engine using bank transaction data.",
-    stack: [
-      { name: "JavaScript" },
-      { name: "TypeScript" },
-      { name: "Node.js" },
-      { name: "NestJS" },
-      { name: "ReactJS" },
-      { name: "Next.js" },
-      { name: "PostgreSQL" },
-      { name: "DynamoDB" },
-      { name: "AWS Lambda" },
-      { name: "AWS EventBridge" },
-    ],
+      "Australian fintech company specializing in clean-energy home installations. Led a cross-functional team of 12 to build vendor webhook management and CDR income-detection systems with retry mechanisms.",
+    stack: ["TypeScript", "Node.js", "NestJS", "ReactJS", "Next.js", "PostgreSQL", "DynamoDB", "AWS Lambda", "AWS EventBridge"],
     live: "",
     mobile: "",
     github: "",
   },
-
   {
     num: "02",
-    category: "Web & Mobile Development",
-    title: "Fullstack Developer - NanoTrading",
+    category: "Trading Platform",
+    title: "Fullstack Developer — NanoTrading",
     description:
-      "Unlock the potential of the commodities market with NanoTrading, your go-to trading app designed specifically for nano-sized commodities. Whether you're an experienced trader or just starting out, NanoTrading makes it easy to buy, sell, and manage your investments with precision.",
-    stack: [
-      { name: "JavaScript" },
-      { name: "TypeScript" },
-      { name: "Node.js" },
-      { name: "Express.js" },
-      { name: "Next.js" },
-      { name: "Docker" },
-      { name: "React Native" },
-      { name: "Kafka" },
-      { name: "Redis" },
-      { name: "Nginx" },
-      { name: "MongoDB" },
-    ],
+      "Commodities trading app for nano-sized markets. Built end-to-end from real-time order management to mobile interface, handling high-frequency data with Kafka and Redis.",
+    stack: ["TypeScript", "Node.js", "Express.js", "Next.js", "React Native", "Kafka", "Redis", "MongoDB", "Docker", "Nginx"],
     live: "https://nano.mxv.com.vn:8441/",
     mobile: "",
     github: "",
   },
-
   {
     num: "03",
-    category: "Web & Mobile Development",
-    title: "Fullstack Developer - MXV Exchange",
+    category: "Trading Platform",
+    title: "Fullstack Developer — MXV Exchange",
     description:
-      "MXV Exchange Platform is an online trading platform facilitating the trading of commodities in energy and agricultural groups. Designed and implemented microservices-based architecture for high-volume trading transactions with real-time data processing.",
-    stack: [
-      { name: "JavaScript" },
-      { name: "TypeScript" },
-      { name: "Node.js" },
-      { name: "Express.js" },
-      { name: "Next.js" },
-      { name: "Docker" },
-      { name: "React Native" },
-      { name: "Kafka" },
-      { name: "Redis" },
-      { name: "Nginx" },
-      { name: "MongoDB" },
-      { name: "PostgreSQL" },
-    ],
+      "Online trading platform for energy and agricultural commodities. Designed microservices architecture for high-volume transactions with real-time data processing.",
+    stack: ["TypeScript", "Node.js", "NestJS", "Next.js", "React Native", "Kafka", "Redis", "MongoDB", "PostgreSQL", "Docker"],
     live: "https://sat.mxv.com.vn/",
     mobile: "https://apps.apple.com/vn/app/mxv-rubber/id6483337283",
     github: "",
   },
-
   {
     num: "04",
     category: "Web Development",
-    title: "Freelancer Fullstack Developer - VitaDairy",
+    title: "Freelance — VitaDairy",
     description:
-      "VitaDairy: an application founded and developed by VitaDairy Vietnam Joint Stock Company, in order to provide consumers with the safest and most economical solution when using VitaDairy's dairy products. Developed and optimized UI for admin management system.",
-    stack: [
-      { name: "JavaScript" },
-      { name: "TypeScript" },
-      { name: "Node.js" },
-      { name: "NestJS" },
-      { name: "React.js" },
-      { name: "AWS S3" },
-      { name: "AWS RDS" },
-      { name: "Redis" },
-      { name: "PostgreSQL" },
-    ],
-    mobile: "",
+      "Admin management system for VitaDairy Vietnam. Developed and optimized UI components, integrated AWS services, and improved backend performance.",
+    stack: ["TypeScript", "NestJS", "React.js", "PostgreSQL", "AWS S3", "AWS RDS", "Redis"],
     live: "",
+    mobile: "",
     github: "",
   },
-
   {
     num: "05",
-    category: "Mobile Development",
-    title: "Freelancer Fullstack Developer - Traphaco ZMA",
+    category: "Mobile",
+    title: "Freelance — Traphaco ZMA",
     description:
-      "Traphaco Zalo Mini App: Developed and optimized UI for Traphaco's Zalo mini app. Refactored backend logic for loyalty application, fixing critical bugs and improving system performance for better user experience.",
-    stack: [
-      { name: "JavaScript" },
-      { name: "TypeScript" },
-      { name: "Node.js" },
-      { name: "NestJS" },
-      { name: "React.js" },
-      { name: "AWS S3" },
-      { name: "AWS RDS" },
-      { name: "Redis" },
-      { name: "PostgreSQL" },
-    ],
-    mobile: "",
+      "Zalo Mini App for Traphaco loyalty program. Refactored backend logic, fixed critical bugs, and improved system performance for a better user experience.",
+    stack: ["TypeScript", "NestJS", "React.js", "PostgreSQL", "AWS S3", "Redis"],
     live: "",
+    mobile: "",
     github: "",
   },
-
   {
     num: "06",
-    category: "E-commerce Development",
-    title: "Fullstack Developer - TrePhuongBac",
+    category: "E-Commerce",
+    title: "Fullstack Developer — TrePhuongBac",
     description:
-      "Discover TrePhuongBac, your premier online store for eco-friendly bamboo items. We offer stylish home décor, kitchenware, furniture, and accessories, all crafted from premium bamboo. Prioritizing sustainability and quality, TrePhuongBac ensures each product enhances your lifestyle while being environmentally friendly.",
-    stack: [
-      { name: "JavaScript" },
-      { name: "TypeScript" },
-      { name: "Node.js" },
-      { name: "Express.js" },
-      { name: "Next.js" },
-      { name: "Nginx" },
-      { name: "MongoDB" },
-    ],
-    mobile: "",
+      "Premier online store for eco-friendly bamboo products. Built full e-commerce backend and storefront with MongoDB and Next.js.",
+    stack: ["TypeScript", "Node.js", "Express.js", "Next.js", "MongoDB", "Nginx"],
     live: "",
+    mobile: "",
     github: "",
   },
-
   {
     num: "07",
-    category: "Social Media Management",
-    title: "Backend Developer - Amai Content",
+    category: "Social Media",
+    title: "Backend Developer — Amai Content",
     description:
-      "Amai Content is an application optimizing content and managing social networks like Facebook, Google My Business, Instagram, etc. Built transaction management system for automated payments integrated with Vietcombank and A Chau Bank. Developed real-time messaging system for multi-platform content management using Facebook Messenger API.",
-    stack: [
-      { name: "JavaScript" },
-      { name: "TypeScript" },
-      { name: "Express.js" },
-      { name: "Selenium" },
-      { name: "Puppeteer" },
-      { name: "Next.js" },
-      { name: "MySQL" },
-      { name: "MongoDB" },
-    ],
-    mobile: "",
+      "Social media management platform for Facebook, Google, and Instagram. Integrated bank payment APIs (Vietcombank, ACB) and built real-time messaging with Messenger API.",
+    stack: ["TypeScript", "Express.js", "MySQL", "MongoDB", "Puppeteer", "Selenium", "Next.js"],
     live: "https://amaicontent.com/",
+    mobile: "",
     github: "",
   },
-
   {
     num: "08",
-    category: "Educational Technology",
-    title: "Backend Developer - JUSEI Master",
+    category: "EdTech",
+    title: "Backend Developer — JUSEI Master",
     description:
-      "JUSEI Master is a study application for the national examination for Judo therapy experts. Developed data analysis and statistics features, optimizing performance of backend queries. Designed and implemented scalable MongoDB schemas to handle large data sets efficiently.",
-    stack: [
-      { name: "TypeScript" },
-      { name: "NestJS" },
-      { name: "MongoDB" },
-    ],
-    mobile: "",
+      "Study application for Japanese Judo therapy national exams. Developed data analysis features and optimized scalable MongoDB schemas for large datasets.",
+    stack: ["TypeScript", "NestJS", "MongoDB"],
     live: "",
+    mobile: "",
     github: "",
   },
 ];
+
+const categoryColors = {
+  "Fintech": "bg-emerald-500/15 text-emerald-400 border-emerald-500/25",
+  "Trading Platform": "bg-blue-500/15 text-blue-400 border-blue-500/25",
+  "Web Development": "bg-violet-500/15 text-violet-400 border-violet-500/25",
+  "Mobile": "bg-orange-500/15 text-orange-400 border-orange-500/25",
+  "E-Commerce": "bg-pink-500/15 text-pink-400 border-pink-500/25",
+  "Social Media": "bg-sky-500/15 text-sky-400 border-sky-500/25",
+  "EdTech": "bg-yellow-500/15 text-yellow-400 border-yellow-500/25",
+};
 
 const Work = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 1.0, duration: 0.4, ease: "easeIn" },
-      }}
-      className="min-h-[80px] flex items-center justify-center py-12 xl:py-0"
+      animate={{ opacity: 1, transition: { delay: 0.3, duration: 0.5 } }}
+      className="min-h-[80px] py-12 xl:py-16"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col gap-[60px]">
-          {/* Header Section */}
-          <div className="text-center xl:text-left">
-            <h2 className="text-4xl font-bold mb-4">My Work</h2>
-            <p className="text-white/60 max-w-[600px] mx-auto xl:mx-0">
-              A collection of projects showcasing my expertise in full-stack development, 
-              system architecture, and technical leadership across various domains.
-            </p>
-          </div>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.5 } }}
+          className="text-center xl:text-left mb-12"
+        >
+          <span className="text-accent/70 text-sm tracking-widest uppercase font-medium">Portfolio</span>
+          <h2 className="h2 mt-2">
+            Featured <span className="text-accent">Work</span>
+          </h2>
+          <p className="text-white/50 max-w-[600px] mt-3 mx-auto xl:mx-0 text-sm leading-relaxed">
+            A selection of projects across fintech, trading platforms, e-commerce, and more — showcasing fullstack expertise and technical leadership.
+          </p>
+        </motion.div>
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0,
-                  transition: { delay: index * 0.1, duration: 0.5 }
-                }}
-                className="bg-[#232329] rounded-xl p-8 hover:bg-[#2a2a32] transition-all duration-300 group"
-              >
-                {/* Project Number & Category */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="text-6xl font-extrabold text-transparent text-outline">
-                    {project.num}
-                  </div>
-                  <span className="text-accent text-sm font-medium px-3 py-1 bg-accent/10 rounded-full">
-                    {project.category}
+        {/* Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { delay: 0.6 + index * 0.08, duration: 0.5, ease: "easeOut" },
+              }}
+              className="glass-card rounded-2xl p-7 flex flex-col gap-5 group hover:box-glow transition-all duration-300 gradient-border relative overflow-hidden"
+            >
+              {/* Scan line on hover */}
+              <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+                <div className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent -top-1 group-hover:top-full transition-all duration-700 ease-in-out" />
+              </div>
+
+              {/* Header row */}
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500 leading-none">
+                  {project.num}
+                </span>
+                <span className={`text-xs font-semibold px-3 py-1.5 rounded-full border ${categoryColors[project.category] ?? "bg-accent/10 text-accent border-accent/20"}`}>
+                  {project.category}
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors duration-300 leading-snug">
+                {project.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-white/60 text-sm leading-relaxed flex-1">
+                {project.description}
+              </p>
+
+              {/* Stack */}
+              <div className="flex flex-wrap gap-2">
+                {project.stack.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="px-2.5 py-1 bg-white/4 text-white/65 text-xs rounded-md border border-white/6 hover:bg-accent/15 hover:text-accent hover:border-accent/30 transition-all duration-200"
+                  >
+                    {tech}
                   </span>
-                </div>
+                ))}
+              </div>
 
-                {/* Project Title */}
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-accent transition-colors duration-300">
-                  {project.title}
-                </h3>
-
-                {/* Project Description */}
-                <p className="text-white/70 mb-6 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Technology Stack */}
-                <div className="mb-6">
-                  <h4 className="text-white font-medium mb-3">Technologies Used:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.stack.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-white/5 text-white/80 text-sm rounded-md hover:bg-accent/20 hover:text-accent transition-colors duration-200"
-                      >
-                        {tech.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex items-center gap-4">
+              {/* Links */}
+              {(project.live || project.mobile || project.github) && (
+                <div className="flex items-center gap-3 pt-2 border-t border-white/6">
                   {project.live && (
                     <Link href={project.live} target="_blank">
                       <TooltipProvider delayDuration={100}>
                         <Tooltip>
-                          <TooltipTrigger className="w-[50px] h-[50px] rounded-full bg-white/5 flex justify-center items-center group hover:bg-accent/20 transition-colors duration-200">
-                            <BsArrowUpRight className="text-white text-xl group-hover:text-accent" />
+                          <TooltipTrigger className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-accent/20 hover:border-accent/40 hover:shadow-[0_0_12px_rgba(0,255,153,0.3)] transition-all duration-200">
+                            <BsArrowUpRight className="text-white/70 text-base hover:text-accent" />
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p>Live Project (Web)</p>
+                            <p>Live Demo</p>
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>
                     </Link>
                   )}
-
                   {project.mobile && (
                     <Link href={project.mobile} target="_blank">
                       <TooltipProvider delayDuration={100}>
                         <Tooltip>
-                          <TooltipTrigger className="w-[50px] h-[50px] rounded-full bg-white/5 flex justify-center items-center group hover:bg-accent/20 transition-colors duration-200">
-                            <BsPhone className="text-white text-xl group-hover:text-accent" />
+                          <TooltipTrigger className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-accent/20 hover:border-accent/40 hover:shadow-[0_0_12px_rgba(0,255,153,0.3)] transition-all duration-200">
+                            <BsPhone className="text-white/70 text-base hover:text-accent" />
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p>Live Project (Mobile)</p>
+                            <p>Mobile App</p>
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>
                     </Link>
                   )}
-
                   {project.github && (
                     <Link href={project.github} target="_blank">
                       <TooltipProvider delayDuration={100}>
                         <Tooltip>
-                          <TooltipTrigger className="w-[50px] h-[50px] rounded-full bg-white/5 flex justify-center items-center group hover:bg-accent/20 transition-colors duration-200">
-                            <BsGithub className="text-white text-xl group-hover:text-accent" />
+                          <TooltipTrigger className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-accent/20 hover:border-accent/40 hover:shadow-[0_0_12px_rgba(0,255,153,0.3)] transition-all duration-200">
+                            <BsGithub className="text-white/70 text-base hover:text-accent" />
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p>Github Repository</p>
+                            <p>GitHub</p>
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>
                     </Link>
                   )}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              )}
+            </motion.div>
+          ))}
         </div>
       </div>
     </motion.div>

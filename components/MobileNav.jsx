@@ -39,26 +39,25 @@ const MobileNav = () => {
           <Link href="/">
             <h1 className="text-4xl font-semibold">
               VietHQ
-              <span className="text-accent"> .</span>
+              <span className="text-accent text-glow">.</span>
             </h1>
           </Link>
         </div>
-        <nav className="flex flex-col justify-center items-center gap-8">
-          {links.map((link, index) => {
-            return (
-              <Link
-                href={link.path}
-                key={index}
-                className={`text-xl capitalize hover:text-accent transition-all ${
-                  link.path == pathName
-                    ? "text-accent border-b-2 border-accent"
-                    : ""
-                }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
+        <nav className="flex flex-col justify-center items-center gap-6">
+          {links.map((link, index) => (
+            <Link
+              href={link.path}
+              key={index}
+              className={`text-xl capitalize transition-all duration-200 relative group ${
+                link.path === pathName
+                  ? "text-accent"
+                  : "text-white/70 hover:text-white"
+              }`}
+            >
+              {link.name}
+              <span className={`absolute -bottom-1 left-0 h-[2px] bg-accent rounded-full transition-all duration-300 ${link.path === pathName ? "w-full" : "w-0 group-hover:w-full"}`} />
+            </Link>
+          ))}
         </nav>
       </SheetContent>
     </Sheet>

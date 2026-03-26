@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
 import { Toaster } from "@/components/ui/toaster";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -12,19 +13,22 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "VietHQ - Portfolio",
-  description: "VietHQ - Portfolio",
+  title: "VietHQ — Senior Software Engineer",
+  description: "Ha Quoc Viet — Fullstack Developer & Technical Leader based in Vietnam. 5 years building scalable web and mobile applications.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${jetbrainsMono.variable} font-primary bg-primary text-white leading-loose`}
+        className={`${jetbrainsMono.variable} font-primary bg-primary text-white leading-loose relative`}
       >
+        <AnimatedBackground />
         {/* <StairTransition /> */}
-        <Header />
-        <PageTransition>{children}</PageTransition>
+        <div className="relative z-10">
+          <Header />
+          <PageTransition>{children}</PageTransition>
+        </div>
         <Toaster />
       </body>
     </html>
