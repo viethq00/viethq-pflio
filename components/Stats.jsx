@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const stats = [
   {
-    count: 5,
+    count: 6,
     suffix: "+",
     text: "Years of Experience",
     icon: "🚀",

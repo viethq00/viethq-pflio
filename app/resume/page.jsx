@@ -17,27 +17,33 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 const about = {
   title: "About me",
   description:
-    "Fullstack developer based in Vietnam — 5 years building scalable web and mobile applications. Passionate about clean architecture, performance, and shipping products that make an impact.",
+    "Fullstack developer based in Vietnam — 6 years building scalable web and mobile applications. Passionate about clean architecture, performance, and shipping products that make an impact.",
   info: [
     { fieldName: "Name", fieldValue: "Ha Quoc Viet" },
     { fieldName: "Phone", fieldValue: "+84 83536 6950" },
-    { fieldName: "Experience", fieldValue: "5 Years" },
+    { fieldName: "Experience", fieldValue: "6 Years" },
     { fieldName: "Nationality", fieldValue: "Vietnamese" },
     { fieldName: "Email", fieldValue: "viethq00@gmail.com" },
     { fieldName: "Freelance", fieldValue: "Available ✓" },
-    { fieldName: "Languages", fieldValue: "English (B2), Vietnamese" },
+    { fieldName: "Languages", fieldValue: "English (B2-C1, IELTS 6.5), Vietnamese" },
   ],
 };
 
 const experience = {
   title: "My Experience",
-  description: "5 years across fintech, trading platforms, e-commerce, and more.",
+  description: "6 years across fintech, trading platforms, e-commerce, and more.",
   item: [
     {
       company: "CMC Global",
       position: "Fullstack Developer & Technical Leader",
       duration: "Mar 2025 — Present",
       details: "Leading 12-person cross-functional team. Technologies: TypeScript, NestJS, ReactJS, Next.js, PostgreSQL, DynamoDB, AWS Lambda, EventBridge.",
+    },
+    {
+      company: "FPT Software",
+      position: "Senior Software Engineer",
+      duration: "Sep 2024 — Present",
+      details: "Engineering services for Flowinsights (Norway) — a privacy-first sensor platform. Technologies: TypeScript, ExpressJS, ReactJS, MongoDB, BunnyCDN, Render.",
     },
     {
       company: "MXV Exchange Platform",
@@ -114,8 +120,9 @@ const additionalSkills = {
   description: "Supporting technologies and tools in my workflow.",
   skillList: [
     "DynamoDB", "AWS S3", "AWS EC2", "AWS ECS", "AWS CloudFront",
-    "AWS RDS", "AWS Lambda", "AWS EventBridge", "Puppeteer", "Selenium",
-    "Unix / Linux", "Visual Studio Code", "English B2", "Agile / Scrum",
+    "AWS RDS", "AWS Lambda", "AWS EventBridge", "AWS Step Functions",
+    "AWS SQS", "Terraform", "Puppeteer", "Selenium",
+    "Unix / Linux", "Visual Studio Code", "English B2-C1", "Agile / Scrum",
   ],
 };
 

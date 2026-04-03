@@ -101,10 +101,10 @@ export default function Home() {
             {/* CTA row */}
             <div className="flex flex-col xl:flex-row items-center gap-6">
               <a
-                href="/assets/CV_HaQuocViet_SeniorSE.pdf"
+                href="/assets/CV_HaQuocViet_SeniorFullstack.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                download="CV_HaQuocViet_SeniorSE.pdf"
+                download="CV_HaQuocViet_SeniorFullstack.pdf"
                 className="inline-block"
               >
                 <Button
