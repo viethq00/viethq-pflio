@@ -21,7 +21,7 @@ const Photo = () => {
       >
         <div className="relative w-[240px] h-[240px] xl:w-[400px] xl:h-[400px] rounded-full overflow-hidden">
           <Image
-            src="/assets/avatar.png"
+            src="/assets/avatarfacebook.jpg"
             priority
             quality={100}
             fill
