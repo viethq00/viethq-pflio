@@ -1,35 +1,40 @@
-import { JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import PageTransition from "@/components/PageTransition";
-import StairTransition from "@/components/StairTransition";
-import { Toaster } from "@/components/ui/toaster";
-import AnimatedBackground from "@/components/AnimatedBackground";
+import SiteNav from "@/components/SiteNav";
 
-const jetbrainsMono = JetBrains_Mono({
+const display = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
-  variable: "--font-jetbrainsMono",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const body = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata = {
-  title: "VietHQ — Senior Software Engineer",
-  description: "Ha Quoc Viet — Fullstack Developer & Technical Leader based in Vietnam. 5 years building scalable web and mobile applications.",
+  title: "Ha Quoc Viet — Full-Stack Developer & Tech Lead",
+  description:
+    "Ha Quoc Viet (VietHQ) — Full-Stack Developer & Tech Lead based in Hanoi, Vietnam. 6 years building fast, reliable web platforms across fintech, trading, retail computer-vision and e-commerce.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${jetbrainsMono.variable} font-primary bg-primary text-white leading-loose relative`}
-      >
-        <AnimatedBackground />
-        {/* <StairTransition /> */}
-        <div className="relative z-10">
-          <Header />
-          <PageTransition>{children}</PageTransition>
-        </div>
-        <Toaster />
+      <body className={`${display.variable} ${body.variable} ${mono.variable}`}>
+        <SiteNav />
+        {children}
       </body>
     </html>
   );

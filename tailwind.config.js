@@ -18,22 +18,28 @@ module.exports = {
         lg: "960px",
         xl: "1200px",
       },
-      fontFamily: {
-        primary: "var(--font-jetbrainsMono)",
-      },
     },
     extend: {
       colors: {
-        primary: "#1c1c22",
-        accent: {
-          DEFAULT: "#00ff99",
-          hover: "#00e187",
+        primary: "#070b0a",
+        surface: {
+          DEFAULT: "#0d1411",
+          raised: "#111b17",
         },
+        accent: {
+          DEFAULT: "#3ddc97",
+          hover: "#5ff0b4",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-body)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "hero-glow": "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,255,153,0.15), transparent)",
+        "hero-glow": "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(52,211,153,0.12), transparent)",
       },
       keyframes: {
         "accordion-down": {
@@ -49,8 +55,8 @@ module.exports = {
           "100%": { backgroundPosition: "-200% center" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 8px rgba(0, 255, 153, 0.25)" },
-          "50%": { boxShadow: "0 0 25px rgba(0, 255, 153, 0.6), 0 0 50px rgba(0, 255, 153, 0.2)" },
+          "0%, 100%": { boxShadow: "0 0 6px rgba(52,211,153,0.2)" },
+          "50%": { boxShadow: "0 0 16px rgba(52,211,153,0.4), 0 0 32px rgba(52,211,153,0.12)" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
