@@ -270,6 +270,8 @@ section { position: relative; padding-block: clamp(72px, 10vw, 132px); }
 .hero-lede { color: var(--txt-2); font-size: clamp(16px, 1.8vw, 18.5px); max-width: 52ch; margin-top: 22px; }
 .hero-lede b { color: var(--txt); font-weight: 600; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.hero-actions .btn { font-size: 16.5px; font-weight: 700; padding: 16px 30px; }
+.hero-actions .btn .ico { width: 18px; height: 18px; }
 
 .hero-social { display: flex; gap: 9px; margin-top: 26px; }
 .soc {
@@ -299,12 +301,12 @@ section { position: relative; padding-block: clamp(72px, 10vw, 132px); }
 .photo-badge {
   position: absolute; bottom: 16px; right: -6px; z-index: 3;
   background: var(--surface-2); border: 1px solid var(--line-strong); border-radius: 12px;
-  padding: 9px 13px; display: flex; align-items: center; gap: 9px;
-  font-family: var(--ff-mono); font-size: 12.5px; color: var(--txt);
+  padding: 11px 16px; display: flex; align-items: center; gap: 10px;
+  font-family: var(--ff-mono); font-size: 15px; font-weight: 700; color: var(--txt);
   box-shadow: 0 14px 30px -14px rgba(0,0,0,0.7);
   backdrop-filter: blur(8px);
 }
-.photo-badge .big { font-size: 18px; color: var(--accent); font-weight: 700; }
+.photo-badge .big { font-size: 30px; color: var(--accent); font-weight: 800; line-height: 1; }
 
 /* hero ticker */
 .hero-ticker {

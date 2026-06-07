@@ -76,7 +76,7 @@ export default function Hero() {
             />
           </div>
           <div className="photo-badge">
-            <span className="big">{profile.yearsBadge}</span> yrs<br />shipping
+            <span className="big">{profile.yearsBadge}</span> years shipping
           </div>
         </div>
       </div>
