@@ -31,8 +31,9 @@ const serif = Instrument_Serif({
   display: "swap",
 });
 
-// Runs before paint so the saved/system theme is applied with no flash of the wrong theme.
-const themeInit = `(function(){try{var t=localStorage.getItem('theme');if(t!=='dark'&&t!=='light'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;
+// Runs before paint so the saved theme is applied with no flash. Defaults to DARK
+// on first visit; the toggle still persists the visitor's choice.
+const themeInit = `(function(){try{var t=localStorage.getItem('theme');if(t!=='dark'&&t!=='light'){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;
 
 // og:image / twitter:image are injected automatically by the file-convention
 // routes app/opengraph-image.jsx + app/twitter-image.jsx (1200×630).
@@ -66,6 +67,7 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${display.variable} ${body.variable} ${mono.variable} ${serif.variable}`}>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+        <div className="edge-glow" aria-hidden="true" />
         <SiteNav />
         {children}
       </body>
