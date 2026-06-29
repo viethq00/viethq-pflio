@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import axios from "axios";
 import { projectTypes, contactInfo, profile } from "@/lib/data";
 import { IconSend, contactIcons } from "@/components/icons";
 
@@ -27,15 +26,19 @@ export default function Contact() {
       return;
     }
     setSending(true);
-    const fd = new FormData();
-    fd.append("firstname", form.first);
-    fd.append("lastname", form.last);
-    fd.append("email", form.email);
-    fd.append("service", form.type);
-    fd.append("message", form.message);
-    axios
-      .post("https://api.trephuongbac.com/users/send-email", fd)
-      .then(() => {
+    fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstname: form.first,
+        lastname: form.last,
+        email: form.email,
+        service: form.type,
+        message: form.message,
+      }),
+    })
+      .then(async (res) => {
+        if (!res.ok) throw new Error("send failed");
         const name = form.first.trim();
         setSending(false);
         setSent(true);
@@ -63,22 +66,22 @@ export default function Contact() {
         <form className="form reveal d1" onSubmit={onSubmit} noValidate>
           <div className="row">
             <div className="field">
-              <label>First name</label>
-              <input type="text" placeholder="Jane" value={form.first} onChange={set("first")} style={errStyle(form.first)} />
+              <label htmlFor="cf-first">First name</label>
+              <input id="cf-first" name="firstname" type="text" placeholder="Jane" value={form.first} onChange={set("first")} style={errStyle(form.first)} aria-invalid={missing(form.first) || undefined} />
             </div>
             <div className="field">
-              <label>Last name</label>
-              <input type="text" placeholder="Doe" value={form.last} onChange={set("last")} style={errStyle(form.last)} />
+              <label htmlFor="cf-last">Last name</label>
+              <input id="cf-last" name="lastname" type="text" placeholder="Doe" value={form.last} onChange={set("last")} style={errStyle(form.last)} aria-invalid={missing(form.last) || undefined} />
             </div>
           </div>
           <div className="row">
             <div className="field">
-              <label>Email</label>
-              <input type="email" placeholder="jane@company.com" value={form.email} onChange={set("email")} style={errStyle(form.email)} />
+              <label htmlFor="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" placeholder="jane@company.com" value={form.email} onChange={set("email")} style={errStyle(form.email)} aria-invalid={missing(form.email) || undefined} />
             </div>
             <div className="field">
-              <label>Project type</label>
-              <select value={form.type} onChange={set("type")}>
+              <label htmlFor="cf-type">Project type</label>
+              <select id="cf-type" name="service" value={form.type} onChange={set("type")}>
                 {projectTypes.map((o) => (
                   <option key={o}>{o}</option>
                 ))}
@@ -86,18 +89,21 @@ export default function Contact() {
             </div>
           </div>
           <div className="field">
-            <label>Message</label>
+            <label htmlFor="cf-message">Message</label>
             <textarea
+              id="cf-message"
+              name="message"
               placeholder="Tell me about your project, timeline and goals…"
               value={form.message}
               onChange={set("message")}
               style={errStyle(form.message)}
+              aria-invalid={missing(form.message) || undefined}
             />
           </div>
           <button className="btn btn-primary submit" type="submit" disabled={sending}>
             {sending ? "Sending…" : sent ? "Message sent ✓" : (<>Send message <IconSend className="ico" /></>)}
           </button>
-          <div className={noteOk ? "form-note ok" : "form-note"}>{note}</div>
+          <div className={noteOk ? "form-note ok" : "form-note"} role="status" aria-live="polite">{note}</div>
         </form>
 
         <aside className="contact-side reveal d2">
@@ -113,7 +119,7 @@ export default function Contact() {
           <div className="contact-cta">
             <h4>Currently available</h4>
             <p>Taking on freelance projects and open to full-time engineering roles.</p>
-            <span className="avail"><span className="dot" />Available for new work</span>
+            <span className="avail"><span className="dot" />Available for work</span>
           </div>
         </aside>
       </div>

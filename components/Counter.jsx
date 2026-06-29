@@ -1,12 +1,13 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-// Count-up numeral: 0 → target over ~1.4s (cubic ease-out) on first scroll into view.
-// Respects prefers-reduced-motion (jumps to final).
+// Count-up numeral: animates 0 → target over ~1.4s (cubic ease-out) on first scroll into view.
+// SSR / no-JS / reduced-motion / missed-trigger rest on the real target (never 0).
 export default function Counter({ to, suffix = "", duration = 1400 }) {
   const ref = useRef(null);
   const done = useRef(false);
-  const [val, setVal] = useState(0);
+  const [val, setVal] = useState(to);
+  const [landed, setLanded] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -30,7 +31,7 @@ export default function Counter({ to, suffix = "", duration = 1400 }) {
             const eased = 1 - Math.pow(1 - p, 3);
             setVal(Math.round(to * eased));
             if (p < 1) requestAnimationFrame(step);
-            else setVal(to);
+            else { setVal(to); setLanded(true); }
           };
           requestAnimationFrame(step);
         });
@@ -42,7 +43,7 @@ export default function Counter({ to, suffix = "", duration = 1400 }) {
   }, [to, duration]);
 
   return (
-    <span ref={ref}>
+    <span ref={ref} className={landed ? "counted" : undefined}>
       {val}
       {suffix}
     </span>

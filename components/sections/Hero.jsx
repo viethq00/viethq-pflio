@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Image from "next/image";
 import Counter from "@/components/Counter";
 import { profile, socials, heroTicker } from "@/lib/data";
@@ -9,27 +8,26 @@ export default function Hero() {
     <section className="hero wrap" id="hero">
       <div className="hero-grid">
         <div className="hero-copy">
-          <span className="hero-kick reveal">{profile.kicker}</span>
-          <h1 className="reveal d1">
-            Hello, I&apos;m
-            <span className="line2 grad-txt">
-              {profile.name}
-              <span className="cursor" />
-            </span>
-          </h1>
-          <div className="hero-role reveal d2">
-            {profile.roles.map((r, i) => (
-              <Fragment key={r}>
-                {i > 0 && <span className="sep">/</span>}
-                <span>{r}</span>
-              </Fragment>
+          <div className="hero-tags reveal">
+            {profile.roles.map((r) => (
+              <span className="tag-pill" key={r}>{r}</span>
             ))}
           </div>
+          <h1 className="reveal d1">
+            Hi, I&apos;m
+            <span className="line2">{profile.name}</span>
+          </h1>
           <p className="hero-lede reveal d2">
-            I build <b>fast, reliable web platforms</b> end-to-end — from clean{" "}
-            <b>React &amp; Next.js</b> front-ends to scalable <b>Node &amp; NestJS</b>{" "}
-            back-ends. Six years shipping products across fintech, trading and retail teams.
+            I build <b>fast, reliable web platforms</b> end-to-end — from scalable{" "}
+            <b>Node &amp; NestJS</b> back-ends to clean <b>React &amp; Next.js</b>{" "}
+            front-ends. <span className="u-mark">Six years</span> shipping across fintech,
+            trading and retail.
           </p>
+          <p className="hero-fit reveal d2">
+            <span className="dot" />
+            Open to senior &amp; lead roles · remote-friendly, overlaps EU/AU hours
+          </p>
+          {/* TODO(viet): confirm availability / timezone wording */}
           <div className="hero-actions reveal d3">
             <a className="btn btn-primary" href="#work">
               View my work
@@ -63,14 +61,12 @@ export default function Hero() {
         </div>
 
         <div className="hero-photo reveal d2">
-          <div className="ring"><span className="tick" /></div>
-          <div className="ring r2" />
-          <div className="photo-core">
+          <div className="blob">
             <Image
               src={profile.avatar}
               alt={profile.name}
               fill
-              sizes="(max-width: 620px) 78vw, 360px"
+              sizes="(max-width: 620px) 78vw, 380px"
               style={{ objectFit: "cover", objectPosition: "center 18%" }}
               priority
             />

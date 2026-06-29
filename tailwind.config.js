@@ -39,7 +39,7 @@ module.exports = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "hero-glow": "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(52,211,153,0.12), transparent)",
+        "hero-glow": "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(61,220,151,0.12), transparent)",
       },
       keyframes: {
         "accordion-down": {
@@ -55,8 +55,8 @@ module.exports = {
           "100%": { backgroundPosition: "-200% center" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 6px rgba(52,211,153,0.2)" },
-          "50%": { boxShadow: "0 0 16px rgba(52,211,153,0.4), 0 0 32px rgba(52,211,153,0.12)" },
+          "0%, 100%": { boxShadow: "0 0 6px rgba(61,220,151,0.2)" },
+          "50%": { boxShadow: "0 0 16px rgba(61,220,151,0.4), 0 0 32px rgba(61,220,151,0.12)" },
         },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { navLinks, profile } from "@/lib/data";
 import { useActiveSection } from "@/lib/useActiveSection";
 import { IconArrow } from "@/components/icons";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const ids = navLinks.map((l) => l.id);
 
@@ -58,6 +59,7 @@ export default function SiteNav() {
               Let&apos;s talk
               <IconArrow className="ico" />
             </a>
+            <ThemeToggle />
             <button className="burger" aria-label="Menu" onClick={() => setOpen((o) => !o)}>
               <span /><span /><span />
             </button>
