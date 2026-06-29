@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { projectTypes, contactInfo, profile } from "@/lib/data";
 import { IconSend, contactIcons } from "@/components/icons";
+import Select from "@/components/Select";
 
 const EMPTY = { first: "", last: "", email: "", type: projectTypes[0], message: "" };
 
@@ -81,11 +82,12 @@ export default function Contact() {
             </div>
             <div className="field">
               <label htmlFor="cf-type">Project type</label>
-              <select id="cf-type" name="service" value={form.type} onChange={set("type")}>
-                {projectTypes.map((o) => (
-                  <option key={o}>{o}</option>
-                ))}
-              </select>
+              <Select
+                id="cf-type"
+                options={projectTypes}
+                value={form.type}
+                onChange={(v) => setForm((p) => ({ ...p, type: v }))}
+              />
             </div>
           </div>
           <div className="field">

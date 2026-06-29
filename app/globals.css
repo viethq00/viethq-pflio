@@ -693,12 +693,36 @@ section { position: relative; padding-block: clamp(48px, 6vw, 88px); }
 .field label { display: block; font-family: var(--ff-mono); font-size: var(--fs-eyebrow); color: var(--txt-3); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 7px; }
 .field input, .field textarea, .field select {
   width: 100%; background: var(--surface); border: 1.5px solid var(--line-strong); border-radius: var(--r-sm);
-  padding: 12px 14px; color: var(--txt); font-family: var(--ff-body); font-size: var(--fs-body); transition: border-color .25s, background .25s;
+  padding: 12px 14px; color: var(--txt); font-family: var(--ff-body); font-size: var(--fs-body); line-height: 1.5; transition: border-color .25s, background .25s;
 }
 .field textarea { resize: vertical; min-height: 120px; }
 .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--accent); background: var(--surface-2); }
 .field input:focus-visible, .field textarea:focus-visible, .field select:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; }
 .field input::placeholder, .field textarea::placeholder { color: var(--txt-faint); }
+
+/* custom dropdown — no native <select> UI */
+.select { position: relative; }
+.select-trigger {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--surface); border: 1.5px solid var(--line-strong); border-radius: var(--r-sm);
+  padding: 12px 14px; color: var(--txt); font-family: var(--ff-body); font-size: var(--fs-body);
+  line-height: 1.5; text-align: left; transition: border-color .25s, background .25s;
+}
+.select-trigger:hover { border-color: var(--accent); }
+.select.open .select-trigger { border-color: var(--accent); background: var(--surface-2); }
+.select-caret { width: 18px; height: 18px; color: var(--txt-3); flex-shrink: 0; transition: transform .25s var(--ease), color .25s; }
+.select.open .select-caret { transform: rotate(180deg); color: var(--accent); }
+.select-list {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 30;
+  background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r-sm);
+  box-shadow: var(--sh); padding: 5px; margin: 0; list-style: none; max-height: 280px; overflow: auto;
+}
+.select-list li {
+  padding: 9px 11px; border-radius: 6px; font-family: var(--ff-body); font-size: var(--fs-sm);
+  color: var(--txt-2); cursor: pointer; transition: background .15s, color .15s;
+}
+.select-list li.is-hi { background: var(--surface-3); color: var(--txt); }
+.select-list li.is-sel { background: var(--accent-wash); color: var(--accent-deep); font-weight: 500; }
 .form .submit { justify-content: center; padding: 15px; }
 .form-note { font-family: var(--ff-mono); font-size: var(--fs-label); color: var(--txt-3); text-align: center; }
 .form-note.ok { color: var(--accent); }
